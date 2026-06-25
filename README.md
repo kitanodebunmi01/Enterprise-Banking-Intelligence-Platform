@@ -12,6 +12,16 @@ This project simulates a large-scale banking analytics environment designed to p
 - GitHub
 - Power Query
 
-## Project Status
+## Progress
 
-Phase 1 - Project Foundation
+### Module 1 – DimCustomer
+
+- ✅ Customer ID
+- ✅ Name Generation
+- ✅ Gender
+- ✅ Date of Birth
+- ✅ Age Calculation
+- ✅ Phone Number
+- ✅ Email
+- ⏳ Customer Location
+- ⏳ Banking Profile
