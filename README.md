@@ -12,16 +12,50 @@ This project simulates a large-scale banking analytics environment designed to p
 - GitHub
 - Power Query
 
-## Progress
+## 📌 Project Progress
 
-### Module 1 – DimCustomer
+### Phase 1 — Planning & Architecture ✅
 
-- ✅ Customer ID
-- ✅ Name Generation
-- ✅ Gender
-- ✅ Date of Birth
-- ✅ Age Calculation
-- ✅ Phone Number
-- ✅ Email
-- ⏳ Customer Location
-- ⏳ Banking Profile
+- [x] Business Requirements Document (BRD)
+- [x] Folder Structure
+- [x] Data Warehouse Architecture
+- [x] Data Dictionary
+- [x] GitHub Repository Setup
+
+---
+
+### Phase 2 — Synthetic Data Generation 🚧
+
+#### ✅ Module 1 — DimCustomer
+
+Completed features:
+
+- Customer Identity
+- Customer Demographics
+- Customer Contact Information
+- Customer Location
+- Customer Banking Profile
+- Annual Income Generation
+- Customer Join Date Generation
+- Data Quality Validation
+- CSV Export
+- Power BI Validation
+
+---
+
+#### ⏳ Module 2 — DimBranch
+
+In Progress
+
+
+## Current Dataset
+
+### DimCustomer
+
+| Metric | Value |
+|---------|------:|
+| Customers | 100,000 |
+| Columns | 14 |
+| States | 8 |
+| Age Range | 18–85 |
+| Customer Segments | 5 |
