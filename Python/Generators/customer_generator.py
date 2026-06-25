@@ -35,6 +35,117 @@ NIGERIAN_PHONE_PREFIXES = [
     "091"
 ]
 
+NIGERIAN_LOCATIONS = {
+
+    "Lagos": [
+        "Ikeja",
+        "Lekki",
+        "Victoria Island",
+        "Yaba",
+        "Surulere"
+    ],
+
+    "Abuja": [
+        "Maitama",
+        "Wuse",
+        "Garki",
+        "Asokoro",
+        "Gwarinpa"
+    ],
+
+    "Rivers": [
+        "Port Harcourt",
+        "Obio-Akpor",
+        "Eleme",
+        "Oyigbo"
+    ],
+
+    "Oyo": [
+        "Ibadan",
+        "Ogbomosho",
+        "Oyo"
+    ],
+
+    "Kano": [
+        "Kano",
+        "Bichi",
+        "Wudil"
+    ],
+
+    "Kaduna": [
+        "Kaduna",
+        "Zaria",
+        "Kafanchan"
+    ],
+
+    "Enugu": [
+        "Enugu",
+        "Nsukka"
+    ],
+
+    "Anambra": [
+        "Awka",
+        "Onitsha",
+        "Nnewi"
+    ]
+}
+
+OCCUPATIONS = {
+
+    "Retail": [
+        "Teacher",
+        "Nurse",
+        "Civil Servant",
+        "Engineer",
+        "Sales Representative",
+        "Student",
+        "Artisan",
+        "Trader"
+    ],
+
+    "SME": [
+        "Business Owner",
+        "Restaurant Owner",
+        "Fashion Designer",
+        "Pharmacist",
+        "Supermarket Owner"
+    ],
+
+    "HNWI": [
+        "Medical Doctor",
+        "Lawyer",
+        "Oil & Gas Executive",
+        "IT Director",
+        "Bank Executive"
+    ],
+
+    "UHNWI": [
+        "CEO",
+        "Investor",
+        "Chairman",
+        "Industrialist"
+    ],
+
+    "Corporate": [
+        "Corporate Account"
+    ]
+
+}
+
+INCOME_RANGES = {
+
+    "Retail": (600000, 8000000),
+
+    "SME": (8000000, 40000000),
+
+    "HNWI": (40000000, 150000000),
+
+    "UHNWI": (150000000, 1000000000),
+
+    "Corporate": (500000000, 10000000000)
+
+}
+
 # HELPER FUNCTIONS
 
 def generate_date_of_birth():
@@ -96,6 +207,37 @@ for _ in range(NUMBER_OF_CUSTOMERS):
 
     dates_of_birth.append(dob.date())
 
+def generate_join_date(date_of_birth):
+
+    try:
+        eighteenth_birthday = datetime(
+            date_of_birth.year + 18,
+            date_of_birth.month,
+            date_of_birth.day
+        )
+
+    except ValueError:
+
+        # Handles customers born on 29 February
+        eighteenth_birthday = datetime(
+            date_of_birth.year + 18,
+            2,
+            28
+        )
+
+    project_start = datetime(2021, 1, 1)
+
+    earliest_join = max(eighteenth_birthday, project_start)
+
+    latest_join = datetime.today()
+
+    random_days = random.randint(
+        0,
+        (latest_join - earliest_join).days
+    )
+
+    return earliest_join + timedelta(days=random_days)
+
 # AGE CALCULATION
 
 ages = []
@@ -147,18 +289,118 @@ for customer_id, first_name, last_name in zip(
     emails.append(email)
 
 
+# CUSTOMER LOCATION
+
+states = []
+cities = []
+
+for _ in range(NUMBER_OF_CUSTOMERS):
+
+    state = random.choice(list(NIGERIAN_LOCATIONS.keys()))
+
+    city = random.choice(
+        NIGERIAN_LOCATIONS[state]
+    )
+
+    states.append(state)
+    cities.append(city)
+
+
+# CUSTOMER SEGMENT
+
+segments = []
+
+for _ in range(NUMBER_OF_CUSTOMERS):
+
+    segment = random.choices(
+
+        population=[
+            "Retail",
+            "SME",
+            "HNWI",
+            "UHNWI",
+            "Corporate"
+        ],
+
+        weights=[
+            88,
+            7,
+            3,
+            1,
+            1
+        ],
+
+        k=1
+
+    )[0]
+
+    segments.append(segment)
+
+
+# OCCUPATION
+
+occupations = []
+
+for segment in segments:
+
+    occupation = random.choice(
+        OCCUPATIONS[segment]
+    )
+
+    occupations.append(occupation)
+
+
+# ANNUAL INCOME
+
+annual_incomes = []
+
+for segment in segments:
+
+    minimum_income, maximum_income = INCOME_RANGES[segment]
+
+    income = random.randint(
+        minimum_income,
+        maximum_income
+    )
+
+    annual_incomes.append(income)
+
+
+# DATE JOINED
+
+join_dates = []
+
+for dob in dates_of_birth:
+
+    join_date = generate_join_date(dob)
+
+    join_dates.append(join_date.date())
+
+
 # CREATE CUSTOMER DATAFRAME
 
 customers = pd.DataFrame({
 
     "CustomerID": customer_ids,
+
     "FirstName": first_names,
     "LastName": last_names,
     "Gender": genders,
+
     "DateOfBirth": dates_of_birth,
     "Age": ages,
+
     "PhoneNumber": phone_numbers,
-    "Email": emails
+    "Email": emails,
+
+    "State": states,
+    "City": cities,
+
+    "CustomerSegment": segments,
+    "Occupation": occupations,
+    "AnnualIncome": annual_incomes,
+
+    "DateJoined": join_dates
 
 })
 
@@ -175,6 +417,61 @@ print(f"Maximum Age : {customers['Age'].max()}")
 print(f"Duplicate Phone Numbers : {customers['PhoneNumber'].duplicated().sum()}")
 
 print(f"Duplicate Emails : {customers['Email'].duplicated().sum()}")
+
+print()
+
+print("States Generated:")
+
+print(customers["State"].value_counts())
+
+print()
+
+print("Customer Segment Distribution")
+
+print(customers["CustomerSegment"].value_counts())
+
+print()
+
+print("Average Annual Income by Customer Segment")
+
+print(
+    customers
+    .groupby("CustomerSegment")["AnnualIncome"]
+    .mean()
+    .round(0)
+)
+
+print()
+
+print("Earliest Join Date")
+
+print(customers["DateJoined"].min())
+
+print()
+
+print("Latest Join Date")
+
+print(customers["DateJoined"].max())
+
+
+# EXPORT DATASET
+
+script_directory = os.path.dirname(os.path.abspath(__file__))
+
+project_directory = os.path.dirname(os.path.dirname(script_directory))
+
+output_file = os.path.join(
+    project_directory,
+    "Data",
+    "DimCustomer.csv"
+)
+
+customers.to_csv(
+    output_file,
+    index=False
+)
+
+print(f"Dataset exported successfully to:\n{output_file}")
 
 # PREVIEW
 
