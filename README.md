@@ -4,6 +4,37 @@
 
 This project simulates a large-scale banking analytics environment designed to proactively identify customer attrition, loan default risk, branch underperformance, and operational issues before they become critical.
 
+
+## Enterprise Architecture Roadmap
+
+```text
+Business Requirements
+        │
+        ▼
+Enterprise Data Model
+        │
+        ▼
+Data Warehouse
+
+├── DimCustomer
+├── DimBranch
+├── DimAccount
+├── FactTransactions
+├── FactLoans
+├── FactComplaints
+├── FactDigitalBanking
+└── FactRevenue
+        │
+        ▼
+Power BI Semantic Model
+        │
+        ▼
+Executive Intelligence Dashboard
+        │
+        ▼
+Early Warning & Revenue Protection
+```
+
 ## Technologies
 
 - Python
@@ -51,20 +82,27 @@ This project simulates a large-scale banking analytics environment designed to p
 
 ---
 
-#### ⏳ Module 3 – DimAccount
+#### ✅ Module 3 – DimAccount
 
-Next Module
+- [x] Account Identity
+- [x] Multi-Account Customer Portfolio
+- [x] Account Type Generation
+- [x] Multi-Currency Support
+- [x] Account Status
+- [x] Account Opening Date
+- [x] Current Balance Generation
+- [x] Enterprise Validation
 
 
 ## 📂 Project Structure
 
 ```
 Enterprise Banking Intelligence & Early Warning Platform
-│
 ├── Data
 │   ├── Dimensions
 │   │   ├── DimCustomer.csv
-│   │   └── DimBranch.csv
+│   │   ├── DimBranch.csv
+│   │   └── DimAccount.csv
 │   │
 │   ├── Facts
 │   │
@@ -87,9 +125,10 @@ Enterprise Banking Intelligence & Early Warning Platform
 ## 📊 Current Datasets
 
 | Dataset | Records | Status |
-|----------|-------:|--------|
+|----------|--------:|--------|
 | DimCustomer | 100,000 | ✅ Complete |
 | DimBranch | 150 | ✅ Complete |
+| DimAccount | 160,040 | ✅ Complete |
 
 
 ## ✅ Data Quality & Validation
@@ -106,6 +145,12 @@ Every generated dataset is validated in Power BI before being integrated into th
 
 ![DimBranch Validation](README%20Assets/Validation/DimBranch_Validation.jpg)
 
+---
+
+### DimAccounts Validation
+
+![DimAccounts Validation](README%20Assets/Validation/DimAccounts_Validation.jpg)
+
 
 ## 🏗️ Completed Data Warehouse Dimensions
 
@@ -113,3 +158,23 @@ Every generated dataset is validated in Power BI before being integrated into th
 |-----------|---------|
 | DimCustomer | Customer demographics, segmentation and profile |
 | DimBranch | Banking network and branch operations |
+| DimAccount | Enterprise banking account portfolio, lifecycle, status, balances and currencies |
+
+
+## 🏦 Enterprise Banking Data Warehouse Progress
+
+| Layer | Status |
+|-------|--------|
+| Business Requirements | ✅ Complete |
+| Enterprise Data Model | ✅ Complete |
+| Data Warehouse Design | ✅ Complete |
+| DimCustomer | ✅ Complete |
+| DimBranch | ✅ Complete |
+| DimAccount | ✅ Complete |
+| FactTransactions | 🚧 Next Module |
+| FactLoans | ⏳ Planned |
+| FactComplaints | ⏳ Planned |
+| FactDigitalBanking | ⏳ Planned |
+| FactRevenue | ⏳ Planned |
+| Early Warning Engine | ⏳ Planned |
+| Executive Power BI Dashboard | ⏳ Planned |
