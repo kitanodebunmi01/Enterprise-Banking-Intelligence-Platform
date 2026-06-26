@@ -1,0 +1,151 @@
+BranchID,BranchCode,BranchName,City,BranchNumber,State,Region,OpeningDate,EmployeeCount,BranchManagerID,BranchManagerName,BranchStatus
+1,BR0001,Yaba Branch I,Yaba,1,Lagos,South West,2011-03-13,69,BM0001,Comfort Obasanjo,Active
+2,BR0002,Nsukka Branch I,Nsukka,1,Enugu,South East,2014-08-23,59,BM0002,Stephen Nnamani,Active
+3,BR0003,Garki Branch I,Garki,1,Abuja,North Central,2011-02-21,68,BM0003,Charity Adeyemi,Active
+4,BR0004,Onitsha Branch I,Onitsha,1,Anambra,South East,2000-11-27,60,BM0004,Daniel Abiola,Active
+5,BR0005,Awka Branch I,Awka,1,Anambra,South East,2006-03-24,63,BM0005,Peter Eze,Active
+6,BR0006,Lekki Branch I,Lekki,1,Lagos,South West,2012-02-02,69,BM0006,Gloria Eze,Active
+7,BR0007,Port Harcourt Branch I,Port Harcourt,1,Rivers,South South,1999-01-03,62,BM0007,Stephen Nnamani,Active
+8,BR0008,Bichi Branch I,Bichi,1,Kano,North West,2006-05-21,57,BM0008,Benjamin Obasanjo,Active
+9,BR0009,Victoria Island Branch I,Victoria Island,1,Lagos,South West,2015-06-21,69,BM0009,Elizabeth Oshodi,Active
+10,BR0010,Kano Branch I,Kano,1,Kano,North West,1997-05-21,58,BM0010,Joshua Okonkwo,Active
+11,BR0011,Ibadan Branch I,Ibadan,1,Oyo,South West,2014-07-11,56,BM0011,Joy Adeyemi,Active
+12,BR0012,Ibadan Branch II,Ibadan,2,Oyo,South West,2009-01-09,45,BM0012,Esther Abiola,Active
+13,BR0013,Victoria Island Branch II,Victoria Island,2,Lagos,South West,2001-09-10,47,BM0013,Peace Abiola,Active
+14,BR0014,Lekki Branch II,Lekki,2,Lagos,South West,2013-11-16,52,BM0014,Juliet Eze,Active
+15,BR0015,Awka Branch II,Awka,2,Anambra,South East,2009-05-01,50,BM0015,Stephen Ekwueme,Active
+16,BR0016,Enugu Branch I,Enugu,1,Enugu,South East,2006-05-21,68,BM0016,Joy Olawale,Active
+17,BR0017,Obio-Akpor Branch I,Obio-Akpor,1,Rivers,South South,2008-08-28,70,BM0017,Ruth Ibrahim,Active
+18,BR0018,Kano Branch II,Kano,2,Kano,North West,1999-06-18,60,BM0018,Blessing Adetokunbo,Active
+19,BR0019,Yaba Branch II,Yaba,2,Lagos,South West,1998-06-06,51,BM0019,Blessing Chukwu,Active
+20,BR0020,Port Harcourt Branch II,Port Harcourt,2,Rivers,South South,2003-05-22,57,BM0020,Esther Ibrahim,Active
+21,BR0021,Bichi Branch II,Bichi,2,Kano,North West,2012-02-07,46,BM0021,Blessing Oyekan,Active
+22,BR0022,Enugu Branch II,Enugu,2,Enugu,South East,1998-08-16,50,BM0022,Daniel Okafor,Active
+23,BR0023,Enugu Branch III,Enugu,3,Enugu,South East,2007-02-05,47,BM0023,Hope Akinwale,Active
+24,BR0024,Yaba Branch III,Yaba,3,Lagos,South West,2012-06-18,35,BM0024,Philip Okonkwo,Active
+25,BR0025,Maitama Branch I,Maitama,1,Abuja,North Central,2015-09-09,67,BM0025,Simon Olawale,Active
+26,BR0026,Kaduna Branch I,Kaduna,1,Kaduna,North West,2006-11-23,63,BM0026,James Ekwueme,Active
+27,BR0027,Yaba Branch IV,Yaba,4,Lagos,South West,2015-08-08,39,BM0027,Ruth Akinwale,Active
+28,BR0028,Nsukka Branch II,Nsukka,2,Enugu,South East,1995-01-05,54,BM0028,Sarah Ogunleye,Active
+29,BR0029,Wuse II Branch I,Wuse II,1,Abuja,North Central,2008-06-07,68,BM0029,Cornelius Obi,Active
+30,BR0030,Enugu Branch IV,Enugu,4,Enugu,South East,2002-04-09,40,BM0030,Deborah Okafor,Active
+31,BR0031,Victoria Island Branch III,Victoria Island,3,Lagos,South West,2005-12-16,39,BM0031,Charity Balogun,Active
+32,BR0032,Wuse II Branch II,Wuse II,2,Abuja,North Central,1995-06-09,51,BM0032,Joseph Oshodi,Active
+33,BR0033,Ikeja Branch I,Ikeja,1,Lagos,South West,1997-07-05,64,BM0033,Elizabeth Olawale,Active
+34,BR0034,Ogbomosho Branch I,Ogbomosho,1,Oyo,South West,2015-11-03,61,BM0034,Patience Obasanjo,Active
+35,BR0035,Zaria Branch I,Zaria,1,Kaduna,North West,2003-02-21,56,BM0035,Emmanuel Okafor,Active
+36,BR0036,Port Harcourt Branch III,Port Harcourt,3,Rivers,South South,2014-09-16,36,BM0036,Nathaniel Ojo,Active
+37,BR0037,Kano Branch III,Kano,3,Kano,North West,2013-08-27,45,BM0037,Angela Chukwu,Active
+38,BR0038,Ogbomosho Branch II,Ogbomosho,2,Oyo,South West,2013-02-04,46,BM0038,Daniel Ojo,Active
+39,BR0039,Kaduna Branch II,Kaduna,2,Kaduna,North West,2001-11-24,46,BM0039,James Obasanjo,Active
+40,BR0040,Ogbomosho Branch III,Ogbomosho,3,Oyo,South West,2000-05-15,50,BM0040,John Ogunleye,Active
+41,BR0041,Lekki Branch III,Lekki,3,Lagos,South West,1996-04-19,40,BM0041,Juliet Ogunleye,Active
+42,BR0042,Lekki Branch IV,Lekki,4,Lagos,South West,2000-05-27,26,BM0042,Daniel Olawale,Active
+43,BR0043,Obio-Akpor Branch II,Obio-Akpor,2,Rivers,South South,2014-09-10,47,BM0043,Samuel Oshodi,Active
+44,BR0044,Kaduna Branch III,Kaduna,3,Kaduna,North West,2007-09-22,40,BM0044,Daniel Abiola,Active
+45,BR0045,Surulere Branch I,Surulere,1,Lagos,South West,1996-10-07,57,BM0045,Gloria Obi,Active
+46,BR0046,Maitama Branch II,Maitama,2,Abuja,North Central,1996-12-02,47,BM0046,Samuel Okafor,Active
+47,BR0047,Garki Branch II,Garki,2,Abuja,North Central,2011-06-01,52,BM0047,Joshua Ogunleye,Active
+48,BR0048,Ibadan Branch III,Ibadan,3,Oyo,South West,2005-11-25,47,BM0048,Stephen Obi,Active
+49,BR0049,Kano Branch IV,Kano,4,Kano,North West,2013-04-20,28,BM0049,Juliet Ojo,Active
+50,BR0050,Surulere Branch II,Surulere,2,Lagos,South West,1996-07-20,52,BM0050,John Obasanjo,Active
+51,BR0051,Ikeja Branch II,Ikeja,2,Lagos,South West,2012-01-22,46,BM0051,James Adetokunbo,Active
+52,BR0052,Kaduna Branch IV,Kaduna,4,Kaduna,North West,2006-12-12,27,BM0052,Benjamin Akinwale,Active
+53,BR0053,Kaduna Branch V,Kaduna,5,Kaduna,North West,2012-03-05,38,BM0053,Blessing Okonkwo,Active
+54,BR0054,Kaduna Branch VI,Kaduna,6,Kaduna,North West,1997-10-27,35,BM0054,Andrew Adetokunbo,Active
+55,BR0055,Awka Branch III,Awka,3,Anambra,South East,1997-11-17,43,BM0055,Blessing Abiola,Active
+56,BR0056,Surulere Branch III,Surulere,3,Lagos,South West,2009-10-18,41,BM0056,Angela Ogunleye,Active
+57,BR0057,Zaria Branch II,Zaria,2,Kaduna,North West,2005-08-29,55,BM0057,Nathaniel Nnamani,Active
+58,BR0058,Ibadan Branch IV,Ibadan,4,Oyo,South West,2007-05-01,32,BM0058,Joseph Obasanjo,Active
+59,BR0059,Garki Branch III,Garki,3,Abuja,North Central,1998-09-14,43,BM0059,Andrew Ogunleye,Active
+60,BR0060,Obio-Akpor Branch III,Obio-Akpor,3,Rivers,South South,2000-12-11,47,BM0060,Agnes Obi,Active
+61,BR0061,Ikeja Branch III,Ikeja,3,Lagos,South West,2006-11-01,39,BM0061,Philip Ibrahim,Active
+62,BR0062,Enugu Branch V,Enugu,5,Enugu,South East,2014-07-26,34,BM0062,James Ogunleye,Active
+63,BR0063,Onitsha Branch II,Onitsha,2,Anambra,South East,2008-08-09,59,BM0063,Deborah Obasanjo,Active
+64,BR0064,Kano Branch V,Kano,5,Kano,North West,2004-06-28,35,BM0064,Elizabeth Oshodi,Active
+65,BR0065,Lekki Branch V,Lekki,5,Lagos,South West,1999-10-02,27,BM0065,Faith Uche,Active
+66,BR0066,Garki Branch IV,Garki,4,Abuja,North Central,2015-11-01,25,BM0066,Deborah Obi,Active
+67,BR0067,Onitsha Branch III,Onitsha,3,Anambra,South East,2007-02-04,49,BM0067,Benjamin Oshodi,Active
+68,BR0068,Ikeja Branch IV,Ikeja,4,Lagos,South West,2011-12-10,28,BM0068,Sarah Adetokunbo,Active
+69,BR0069,Awka Branch IV,Awka,4,Anambra,South East,2011-05-16,27,BM0069,Juliet Adetokunbo,Active
+70,BR0070,Kano Branch VI,Kano,6,Kano,North West,2010-06-22,31,BM0070,Comfort Okonkwo,Active
+71,BR0071,Obio-Akpor Branch IV,Obio-Akpor,4,Rivers,South South,1999-07-06,33,BM0071,Patience Adeyemi,Active
+72,BR0072,Ikeja Branch V,Ikeja,5,Lagos,South West,2010-12-28,29,BM0072,Benjamin Chukwu,Active
+73,BR0073,Lekki Branch VI,Lekki,6,Lagos,South West,2001-12-28,36,BM0073,Juliet Ibrahim,Active
+74,BR0074,Garki Branch V,Garki,5,Abuja,North Central,2003-12-13,27,BM0074,Comfort Ibrahim,Active
+75,BR0075,Onitsha Branch IV,Onitsha,4,Anambra,South East,2010-01-24,32,BM0075,Benjamin Nnamani,Active
+76,BR0076,Yaba Branch V,Yaba,5,Lagos,South West,2009-07-29,36,BM0076,Joy Olawale,Active
+77,BR0077,Obio-Akpor Branch V,Obio-Akpor,5,Rivers,South South,2003-05-18,34,BM0077,Paul Abiola,Active
+78,BR0078,Wuse II Branch III,Wuse II,3,Abuja,North Central,2004-10-28,40,BM0078,Ruth Ogunleye,Active
+79,BR0079,Surulere Branch IV,Surulere,4,Lagos,South West,2015-03-06,39,BM0079,Nathaniel Nnamani,Active
+80,BR0080,Onitsha Branch V,Onitsha,5,Anambra,South East,2006-08-10,34,BM0080,John Obasanjo,Active
+81,BR0081,Ogbomosho Branch IV,Ogbomosho,4,Oyo,South West,2005-02-15,25,BM0081,Mary Okafor,Active
+82,BR0082,Victoria Island Branch IV,Victoria Island,4,Lagos,South West,1997-09-18,34,BM0082,Elizabeth Chukwu,Active
+83,BR0083,Victoria Island Branch V,Victoria Island,5,Lagos,South West,2000-07-23,28,BM0083,Joy Olawale,Active
+84,BR0084,Enugu Branch VI,Enugu,6,Enugu,South East,2000-01-15,29,BM0084,Joseph Nnamani,Active
+85,BR0085,Wuse II Branch IV,Wuse II,4,Abuja,North Central,1996-06-08,33,BM0085,Emmanuel Eze,Active
+86,BR0086,Bichi Branch III,Bichi,3,Kano,North West,2002-08-01,38,BM0086,Daniel Olawale,Active
+87,BR0087,Zaria Branch III,Zaria,3,Kaduna,North West,1995-06-22,38,BM0087,Peace Nnamani,Active
+88,BR0088,Garki Branch VI,Garki,6,Abuja,North Central,2008-03-12,29,BM0088,John Obasanjo,Active
+89,BR0089,Surulere Branch V,Surulere,5,Lagos,South West,2007-06-04,33,BM0089,Cornelius Nnamani,Active
+90,BR0090,Ibadan Branch V,Ibadan,5,Oyo,South West,2000-02-29,34,BM0090,Comfort Chukwu,Active
+91,BR0091,Ikeja Branch VI,Ikeja,6,Lagos,South West,2008-03-13,31,BM0091,Comfort Akinwale,Active
+92,BR0092,Port Harcourt Branch IV,Port Harcourt,4,Rivers,South South,1999-12-10,35,BM0092,Esther Okonkwo,Active
+93,BR0093,Surulere Branch VI,Surulere,6,Lagos,South West,1995-02-28,31,BM0093,Grace Oyekan,Active
+94,BR0094,Nsukka Branch III,Nsukka,3,Enugu,South East,1996-08-04,43,BM0094,Angela Obasanjo,Active
+95,BR0095,Ogbomosho Branch V,Ogbomosho,5,Oyo,South West,2010-11-16,40,BM0095,Cornelius Okafor,Active
+96,BR0096,Bichi Branch IV,Bichi,4,Kano,North West,2009-02-25,33,BM0096,Nathaniel Balogun,Active
+97,BR0097,Victoria Island Branch VI,Victoria Island,6,Lagos,South West,1996-04-27,26,BM0097,Mark Akinwale,Active
+98,BR0098,Zaria Branch IV,Zaria,4,Kaduna,North West,2000-02-19,27,BM0098,Grace Oyekan,Active
+99,BR0099,Wuse II Branch V,Wuse II,5,Abuja,North Central,1996-07-06,38,BM0099,Mark Eze,Active
+100,BR0100,Port Harcourt Branch V,Port Harcourt,5,Rivers,South South,2015-04-23,33,BM0100,Grace Ojo,Active
+101,BR0101,Nsukka Branch IV,Nsukka,4,Enugu,South East,1995-09-15,26,BM0101,Benjamin Okafor,Active
+102,BR0102,Awka Branch V,Awka,5,Anambra,South East,2014-04-13,25,BM0102,David Adetokunbo,Active
+103,BR0103,Maitama Branch III,Maitama,3,Abuja,North Central,2002-05-30,45,BM0103,Esther Ogunleye,Active
+104,BR0104,Kano Branch VII,Kano,7,Kano,North West,1996-08-03,29,BM0104,Juliet Ekwueme,Active
+105,BR0105,Nsukka Branch V,Nsukka,5,Enugu,South East,2006-07-13,33,BM0105,Angela Abiola,Active
+106,BR0106,Ibadan Branch VI,Ibadan,6,Oyo,South West,2000-05-03,30,BM0106,Michael Obasanjo,Active
+107,BR0107,Ibadan Branch VII,Ibadan,7,Oyo,South West,2001-03-31,39,BM0107,Nathaniel Oshodi,Active
+108,BR0108,Nsukka Branch VI,Nsukka,6,Enugu,South East,2010-01-02,38,BM0108,Stephen Chukwu,Active
+109,BR0109,Zaria Branch V,Zaria,5,Kaduna,North West,2005-11-20,25,BM0109,Victoria Ibrahim,Active
+110,BR0110,Surulere Branch VII,Surulere,7,Lagos,South West,1999-10-22,28,BM0110,Ruth Okonkwo,Active
+111,BR0111,Victoria Island Branch VII,Victoria Island,7,Lagos,South West,2007-02-04,27,BM0111,John Olawale,Active
+112,BR0112,Ibadan Branch VIII,Ibadan,8,Oyo,South West,1997-12-19,29,BM0112,Andrew Ojo,Active
+113,BR0113,Enugu Branch VII,Enugu,7,Enugu,South East,2011-03-23,26,BM0113,Gloria Abiola,Active
+114,BR0114,Maitama Branch IV,Maitama,4,Abuja,North Central,2015-12-25,36,BM0114,Esther Okonkwo,Active
+115,BR0115,Obio-Akpor Branch VI,Obio-Akpor,6,Rivers,South South,2014-10-16,29,BM0115,Joseph Ibrahim,Active
+116,BR0116,Nsukka Branch VII,Nsukka,7,Enugu,South East,2007-10-22,38,BM0116,Sarah Okafor,Active
+117,BR0117,Lekki Branch VII,Lekki,7,Lagos,South West,2007-12-04,29,BM0117,Esther Ibrahim,Active
+118,BR0118,Ogbomosho Branch VI,Ogbomosho,6,Oyo,South West,2005-08-08,26,BM0118,Juliet Chukwu,Active
+119,BR0119,Wuse II Branch VI,Wuse II,6,Abuja,North Central,2000-06-13,34,BM0119,Sarah Obasanjo,Active
+120,BR0120,Bichi Branch V,Bichi,5,Kano,North West,2012-08-06,36,BM0120,Benjamin Eze,Active
+121,BR0121,Surulere Branch VIII,Surulere,8,Lagos,South West,2005-08-10,26,BM0121,Joy Uche,Active
+122,BR0122,Yaba Branch VI,Yaba,6,Lagos,South West,2013-02-10,36,BM0122,Samuel Balogun,Active
+123,BR0123,Onitsha Branch VI,Onitsha,6,Anambra,South East,2004-02-17,31,BM0123,Joshua Oyekan,Active
+124,BR0124,Garki Branch VII,Garki,7,Abuja,North Central,1999-04-09,32,BM0124,Simon Eze,Active
+125,BR0125,Victoria Island Branch VIII,Victoria Island,8,Lagos,South West,1997-02-11,28,BM0125,Ruth Ojo,Active
+126,BR0126,Yaba Branch VII,Yaba,7,Lagos,South West,1997-03-05,36,BM0126,Angela Nnamani,Active
+127,BR0127,Zaria Branch VI,Zaria,6,Kaduna,North West,2009-10-12,38,BM0127,Charity Eze,Active
+128,BR0128,Lekki Branch VIII,Lekki,8,Lagos,South West,2004-09-01,29,BM0128,Juliet Oyekan,Active
+129,BR0129,Obio-Akpor Branch VII,Obio-Akpor,7,Rivers,South South,2002-12-12,32,BM0129,Michael Obi,Active
+130,BR0130,Onitsha Branch VII,Onitsha,7,Anambra,South East,2004-07-01,30,BM0130,Elizabeth Chukwu,Active
+131,BR0131,Kaduna Branch VII,Kaduna,7,Kaduna,North West,2004-03-21,30,BM0131,Blessing Adeyemi,Active
+132,BR0132,Wuse II Branch VII,Wuse II,7,Abuja,North Central,2005-06-22,38,BM0132,Mary Ibrahim,Active
+133,BR0133,Port Harcourt Branch VI,Port Harcourt,6,Rivers,South South,2014-05-17,25,BM0133,Patience Okonkwo,Active
+134,BR0134,Maitama Branch V,Maitama,5,Abuja,North Central,2011-05-09,30,BM0134,John Nnamani,Active
+135,BR0135,Garki Branch VIII,Garki,8,Abuja,North Central,1996-03-19,35,BM0135,Angela Abiola,Active
+136,BR0136,Bichi Branch VI,Bichi,6,Kano,North West,2010-02-07,38,BM0136,Victoria Ibrahim,Active
+137,BR0137,Awka Branch VI,Awka,6,Anambra,South East,2009-08-28,32,BM0137,Sarah Oshodi,Active
+138,BR0138,Yaba Branch VIII,Yaba,8,Lagos,South West,2009-06-29,33,BM0138,Stephen Chukwu,Active
+139,BR0139,Wuse II Branch VIII,Wuse II,8,Abuja,North Central,1997-03-17,30,BM0139,Gabriel Adetokunbo,Active
+140,BR0140,Maitama Branch VI,Maitama,6,Abuja,North Central,1996-05-11,28,BM0140,Peace Uche,Active
+141,BR0141,Maitama Branch VII,Maitama,7,Abuja,North Central,2004-01-12,37,BM0141,Gloria Ogunleye,Active
+142,BR0142,Ikeja Branch VII,Ikeja,7,Lagos,South West,2011-05-02,26,BM0142,Paul Abiola,Active
+143,BR0143,Bichi Branch VII,Bichi,7,Kano,North West,2002-08-11,40,BM0143,Grace Adetokunbo,Active
+144,BR0144,Ogbomosho Branch VII,Ogbomosho,7,Oyo,South West,2012-12-15,32,BM0144,Sarah Ekwueme,Active
+145,BR0145,Awka Branch VII,Awka,7,Anambra,South East,2014-04-29,31,BM0145,Peace Okafor,Active
+146,BR0146,Zaria Branch VII,Zaria,7,Kaduna,North West,1997-06-14,39,BM0146,Mark Oshodi,Active
+147,BR0147,Ikeja Branch VIII,Ikeja,8,Lagos,South West,2000-07-29,36,BM0147,James Oshodi,Active
+148,BR0148,Port Harcourt Branch VII,Port Harcourt,7,Rivers,South South,1999-04-19,34,BM0148,Michael Chukwu,Active
+149,BR0149,Ogbomosho Branch VIII,Ogbomosho,8,Oyo,South West,1999-04-08,32,BM0149,Joy Olawale,Active
+150,BR0150,Maitama Branch VIII,Maitama,8,Abuja,North Central,2007-01-11,32,BM0150,Angela Adeyemi,Active
