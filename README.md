@@ -105,3 +105,11 @@ Every generated dataset is validated in Power BI before being integrated into th
 ### DimBranch Validation
 
 ![DimBranch Validation](README%20Assets/Validation/DimBranch_Validation.jpg)
+
+
+## 🏗️ Completed Data Warehouse Dimensions
+
+| Dimension | Purpose |
+|-----------|---------|
+| DimCustomer | Customer demographics, segmentation and profile |
+| DimBranch | Banking network and branch operations |
