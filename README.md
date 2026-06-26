@@ -92,7 +92,7 @@ Enterprise Banking Intelligence & Early Warning Platform
 | DimBranch | 150 | ✅ Complete |
 
 
-## ✅ Data Validation
+## ✅ Data Quality & Validation
 
 Every generated dataset is validated in Power BI before being integrated into the warehouse.
 
