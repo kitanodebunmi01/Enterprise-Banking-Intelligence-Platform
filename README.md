@@ -98,10 +98,10 @@ Every generated dataset is validated in Power BI before being integrated into th
 
 ### DimCustomer Validation
 
-![DimCustomer Validation](README Assets/Validation/DimCustomer_Validation.jpg)
+![DimCustomer Validation](README%20Assets/Validation/DimCustomer_Validation.jpg)
 
 ---
 
 ### DimBranch Validation
 
-![DimBranch Validation](README Assets/Validation/DimBranch_Validation.jpg)
+![DimBranch Validation](README%20Assets/Validation/DimBranch_Validation.jpg)
