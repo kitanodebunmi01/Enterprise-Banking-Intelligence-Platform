@@ -146,6 +146,28 @@ INCOME_RANGES = {
 
 }
 
+
+# LOAD DIMBRANCH
+
+project_directory = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        "..",
+        ".."
+    )
+)
+
+branch_file = os.path.join(
+    project_directory,
+    "Data",
+    "Dimensions",
+    "DimBranch.csv"
+)
+
+branch_df = pd.read_csv(branch_file)
+
+branch_ids = branch_df["BranchID"].tolist()
+
 # HELPER FUNCTIONS
 
 def generate_date_of_birth():
@@ -225,7 +247,7 @@ def generate_join_date(date_of_birth):
             28
         )
 
-    project_start = datetime(2021, 1, 1)
+    project_start = datetime(2016, 1, 1)
 
     earliest_join = max(eighteenth_birthday, project_start)
 
@@ -237,6 +259,27 @@ def generate_join_date(date_of_birth):
     )
 
     return earliest_join + timedelta(days=random_days)
+
+
+# ASSIGN CUSTOMERS TO BRANCHES
+
+
+# Calculate branch allocation weights
+branch_weights = (
+    branch_df["EmployeeCount"] /
+    branch_df["EmployeeCount"].sum()
+)
+
+# Assign customers using weighted probabilities
+customer_branch_ids = np.random.choice(
+
+    branch_df["BranchID"],
+
+    size=NUMBER_OF_CUSTOMERS,
+
+    p=branch_weights
+
+)
 
 # AGE CALCULATION
 
@@ -382,6 +425,7 @@ for dob in dates_of_birth:
 customers = pd.DataFrame({
 
     "CustomerID": customer_ids,
+    "BranchID": customer_branch_ids,
 
     "FirstName": first_names,
     "LastName": last_names,
@@ -453,16 +497,74 @@ print("Latest Join Date")
 
 print(customers["DateJoined"].max())
 
+print()
 
-# EXPORT DATASET
+print("Branch Distribution")
 
-script_directory = os.path.dirname(os.path.abspath(__file__))
+print(
+    customers["BranchID"].value_counts().head()
+)
 
-project_directory = os.path.dirname(os.path.dirname(script_directory))
+print()
+
+print("Unique Branches")
+
+print(
+    customers["BranchID"].nunique()
+)
+
+branch_distribution = (
+    customers["BranchID"]
+    .value_counts()
+    .reset_index()
+)
+
+branch_distribution.columns = [
+    "BranchID",
+    "CustomerCount"
+]
+
+branch_distribution = branch_distribution.merge(
+
+    branch_df[["BranchID", "EmployeeCount"]],
+
+    on="BranchID"
+
+)
+
+print()
+
+print("Top Branches by Employee Count")
+
+print(
+
+    branch_distribution
+
+    .sort_values(
+        "EmployeeCount",
+        ascending=True
+    )
+
+    .head(10)
+
+)
+
+
+
+# EXPORT DIMCUSTOMER
+
+project_directory = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        "..",
+        ".."
+    )
+)
 
 output_file = os.path.join(
     project_directory,
     "Data",
+    "Dimensions",
     "DimCustomer.csv"
 )
 
@@ -471,7 +573,11 @@ customers.to_csv(
     index=False
 )
 
-print(f"Dataset exported successfully to:\n{output_file}")
+print()
+
+print("DimCustomer exported successfully.")
+print(output_file)
+
 
 # PREVIEW
 
