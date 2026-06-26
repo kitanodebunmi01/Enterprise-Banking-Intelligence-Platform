@@ -14,48 +14,94 @@ This project simulates a large-scale banking analytics environment designed to p
 
 ## 📌 Project Progress
 
-### Phase 1 — Planning & Architecture ✅
+### ✅ Phase 1 – Planning & Foundation
 
 - [x] Business Requirements Document (BRD)
-- [x] Folder Structure
 - [x] Data Warehouse Architecture
-- [x] Data Dictionary
-- [x] GitHub Repository Setup
+- [x] Enterprise Data Model
+- [x] Project Folder Structure
+- [x] GitHub Repository
+- [x] Project Documentation
 
 ---
 
-### Phase 2 — Synthetic Data Generation 🚧
+### 🚧 Phase 2 – Data Warehouse Development
 
-#### ✅ Module 1 — DimCustomer
+#### ✅ Module 1 – DimCustomer
 
-Completed features:
-
-- Customer Identity
-- Customer Demographics
-- Customer Contact Information
-- Customer Location
-- Customer Banking Profile
-- Annual Income Generation
-- Customer Join Date Generation
-- Data Quality Validation
-- CSV Export
-- Power BI Validation
+- [x] Customer Identity
+- [x] Customer Demographics
+- [x] Customer Contact Information
+- [x] Customer Segmentation
+- [x] Customer Income Generation
+- [x] Customer Join Date
+- [x] Power BI Validation
 
 ---
 
-#### ⏳ Module 2 — DimBranch
+#### ✅ Module 2 – DimBranch
 
-In Progress
+- [x] Branch Identity
+- [x] Geographic Hierarchy
+- [x] Branch Opening Timeline
+- [x] Employee Allocation
+- [x] Branch Management
+- [x] Branch Operational Status
+- [x] Power BI Validation
+
+---
+
+#### ⏳ Module 3 – DimAccount
+
+Next Module
 
 
-## Current Dataset
+## 📂 Project Structure
 
-### DimCustomer
+```
+Enterprise Banking Intelligence & Early Warning Platform
+│
+├── Data
+│   ├── Dimensions
+│   │   ├── DimCustomer.csv
+│   │   └── DimBranch.csv
+│   │
+│   ├── Facts
+│   │
+│   └── Reference
+│
+├── Documentation
+│
+├── PowerBI
+│   ├── Validation
+│   └── Dashboards
+│
+├── Python
+│   ├── Generators
+│   ├── Utilities
+│   └── Data Validation
+│
+└── README Assets
+```
 
-| Metric | Value |
-|---------|------:|
-| Customers | 100,000 |
-| Columns | 14 |
-| States | 8 |
-| Age Range | 18–85 |
-| Customer Segments | 5 |
+## 📊 Current Datasets
+
+| Dataset | Records | Status |
+|----------|-------:|--------|
+| DimCustomer | 100,000 | ✅ Complete |
+| DimBranch | 150 | ✅ Complete |
+
+
+## ✅ Data Validation
+
+Every generated dataset is validated in Power BI before being integrated into the warehouse.
+
+### DimCustomer Validation
+
+![DimCustomer Validation](README Assets/Validation/DimCustomer_Validation.jpg)
+
+---
+
+### DimBranch Validation
+
+![DimBranch Validation](README Assets/Validation/DimBranch_Validation.jpg)
