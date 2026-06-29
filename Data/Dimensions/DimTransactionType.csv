@@ -1,0 +1,46 @@
+TransactionTypeID,TransactionCode,TransactionCategory,TransactionType,Direction,Channel
+1,CASH_DEP,Cash,Cash Deposit,Credit,Branch
+2,CASH_WD,Cash,Cash Withdrawal,Debit,Branch
+3,ATM_DEP,Cash,ATM Cash Deposit,Credit,ATM
+4,ATM_WD,Cash,ATM Cash Withdrawal,Debit,ATM
+5,IB_IN,Transfer,Intra-bank Transfer In,Credit,Internal Banking
+6,IB_OUT,Transfer,Intra-bank Transfer Out,Debit,Internal Banking
+7,NIP_IN,Transfer,Inter-bank Transfer In,Credit,NIP
+8,NIP_OUT,Transfer,Inter-bank Transfer Out,Debit,NIP
+9,SALARY_CR,Transfer,Salary Credit,Credit,Internal Clearing
+10,STANDING_ORDER,Transfer,Standing Order,Debit,Standing Order
+11,TRANSFER_FEE,Charges,Transfer Fee,Debit,Core Banking
+12,POS_PUR,Card,POS Purchase,Debit,POS
+13,ONLINE_PUR,Card,Online Card Purchase,Debit,Card Network
+14,CARD_REFUND,Card,Card Refund,Credit,Card Network
+15,CARD_REV,Card,Card Reversal,Credit,Card Network
+16,CARD_MAINT_FEE,Charges,Card Maintenance Fee,Debit,Core Banking
+17,AIRTIME,Payment,Airtime Purchase,Debit,Mobile App
+18,DATA,Payment,Data Purchase,Debit,Mobile App
+19,ELECTRICITY,Payment,Electricity Bill,Debit,Mobile App
+20,CABLETV,Payment,Cable TV Subscription,Debit,Mobile App
+21,SCHOOL_FEES,Payment,School Fees,Debit,Mobile App
+22,INSURANCE,Payment,Insurance Premium,Debit,Mobile App
+23,FX_BUY,Foreign Exchange,FX Purchase,Debit,Treasury
+24,FX_SELL,Foreign Exchange,FX Sale,Credit,Treasury
+25,SWIFT_IN,Foreign Exchange,SWIFT Incoming,Credit,SWIFT
+26,SWIFT_OUT,Foreign Exchange,SWIFT Outgoing,Debit,SWIFT
+27,LOAN_DISB,Lending,Loan Disbursement,Credit,Loan System
+28,LOAN_REPAY,Lending,Loan Repayment,Debit,Loan System
+29,LOAN_INT,Lending,Loan Interest Payment,Debit,Loan System
+30,LOAN_PENALTY,Lending,Loan Penalty Charge,Debit,Loan System
+31,FD_PLACE,Investment,Fixed Deposit Placement,Debit,Branch
+32,FD_MATURE,Investment,Fixed Deposit Maturity,Credit,Branch
+33,FD_INT,Investment,Fixed Deposit Interest,Credit,Core Banking
+34,SMS_FEE,Charges,SMS Alert Fee,Debit,Core Banking
+35,ACCT_MAINT,Charges,Account Maintenance Fee,Debit,Core Banking
+36,STAMP_DUTY,Charges,Stamp Duty,Debit,Core Banking
+37,VAT_CHARGE,Charges,VAT on Charges,Debit,Core Banking
+38,SAV_INT,Interest,Savings Interest Credit,Credit,Core Banking
+39,CURR_INT,Interest,Current Account Interest,Credit,Core Banking
+40,DEBIT_REV,Operational,Debit Reversal,Credit,Operations
+41,CREDIT_REV,Operational,Credit Reversal,Debit,Operations
+42,FAILED_REV,Operational,Failed Transfer Reversal,Credit,Operations
+43,MANUAL_CR,Operational,Manual Adjustment Credit,Credit,Operations
+44,MANUAL_DR,Operational,Manual Adjustment Debit,Debit,Operations
+45,FRAUD_REC,Operational,Fraud Recovery,Credit,Fraud Operations
