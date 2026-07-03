@@ -1,11 +1,16 @@
-# Enterprise Banking Intelligence & Early Warning Platform
+# Enterprise Banking Intelligence & Early Warning Platform (EBIEWP)
 
 ## Overview
 
-This project simulates a large-scale banking analytics environment designed to proactively identify customer attrition, loan default risk, branch underperformance, and operational issues before they become critical.
+The Enterprise Banking Intelligence & Early Warning Platform (EBIEWP) is an end-to-end banking analytics project that simulates an enterprise-grade data warehouse used by commercial banks to monitor customer behaviour, lending performance, operational efficiency and revenue risk.
 
+The platform generates realistic synthetic banking data using business-driven rules and prepares it for SQL analytics, Power BI dashboards and an Early Warning Engine capable of identifying emerging risks before they become critical.
 
-## Enterprise Architecture Roadmap
+This project demonstrates enterprise-scale data engineering, dimensional modelling, business intelligence and banking analytics using Python, SQL Server and Power BI.
+
+---
+
+# Enterprise Architecture
 
 ```text
 Business Requirements
@@ -14,167 +19,267 @@ Business Requirements
 Enterprise Data Model
         │
         ▼
-Data Warehouse
+Python Data Generation Engine
+        │
+        ▼
+Enterprise Data Warehouse
 
 ├── DimCustomer
 ├── DimBranch
 ├── DimAccount
-├── FactTransactions
-├── FactLoans
-├── FactComplaints
-├── FactDigitalBanking
-└── FactRevenue
+├── DimDate
+├── FactTransaction
+├── FactLoan
+└── FactRepayment
+        │
+        ▼
+SQL Server Analytics Layer
         │
         ▼
 Power BI Semantic Model
         │
         ▼
-Executive Intelligence Dashboard
+Executive Intelligence Dashboards
         │
         ▼
-Early Warning & Revenue Protection
+Early Warning & Revenue Protection Engine
 ```
 
-## Technologies
+---
+
+# Technologies
 
 - Python
+- Pandas
+- SQL Server
 - Power BI
-- SQL
-- GitHub
 - Power Query
+- Git
+- GitHub
 
-## 📌 Project Progress
+---
 
-### ✅ Phase 1 – Planning & Foundation
+# Project Statistics
+
+| Component | Volume |
+|-----------|--------:|
+| Customers | 100,000 |
+| Accounts | 153,035 |
+| Branches | 150 |
+| Calendar Dates | 3,834 |
+| Transactions | 100M+ |
+| Active Loans | 4,937 |
+| Repayment Records | 33,000+ |
+
+---
+
+# Project Progress
+
+## ✅ Phase 1 – Planning & Foundation
 
 - [x] Business Requirements Document (BRD)
-- [x] Data Warehouse Architecture
 - [x] Enterprise Data Model
-- [x] Project Folder Structure
-- [x] GitHub Repository
+- [x] Enterprise Data Warehouse Architecture
 - [x] Project Documentation
+- [x] GitHub Repository
+- [x] Folder Structure
 
 ---
 
-### 🚧 Phase 2 – Data Warehouse Development
+## ✅ Phase 2 – Enterprise Data Warehouse
 
-#### ✅ Module 1 – DimCustomer
+### Dimensions
 
-- [x] Customer Identity
-- [x] Customer Demographics
-- [x] Customer Contact Information
-- [x] Customer Segmentation
-- [x] Customer Income Generation
-- [x] Customer Join Date
-- [x] Power BI Validation
+- [x] DimCustomer
+- [x] DimBranch
+- [x] DimAccount
+- [x] DimDate
 
----
+### Fact Tables
 
-#### ✅ Module 2 – DimBranch
-
-- [x] Branch Identity
-- [x] Geographic Hierarchy
-- [x] Branch Opening Timeline
-- [x] Employee Allocation
-- [x] Branch Management
-- [x] Branch Operational Status
-- [x] Power BI Validation
+- [x] FactTransaction
+- [x] FactLoan
+- [x] FactRepayment
 
 ---
 
-#### ✅ Module 3 – DimAccount
+## 🚧 Phase 3 – Analytics Layer
 
-- [x] Account Identity
-- [x] Multi-Account Customer Portfolio
-- [x] Account Type Generation
-- [x] Multi-Currency Support
-- [x] Account Status
-- [x] Account Opening Date
-- [x] Current Balance Generation
-- [x] Enterprise Validation
+- [ ] SQL Server Data Warehouse
+- [ ] SQL Analytical Views
+- [ ] Early Warning SQL Engine
 
+---
 
-## 📂 Project Structure
+## ⏳ Phase 4 – Business Intelligence
 
-```
+- [ ] Power BI Semantic Model
+- [ ] Executive Dashboard
+- [ ] Retail Banking Dashboard
+- [ ] Credit Risk Dashboard
+- [ ] Branch Performance Dashboard
+- [ ] Early Warning Dashboard
+
+---
+
+# Project Structure
+
+```text
 Enterprise Banking Intelligence & Early Warning Platform
+│
 ├── Data
 │   ├── Dimensions
 │   │   ├── DimCustomer.csv
 │   │   ├── DimBranch.csv
-│   │   └── DimAccount.csv
+│   │   ├── DimAccount.csv
+│   │   └── DimDate.csv
 │   │
 │   ├── Facts
+│   │   ├── FactTransaction_100.csv
+│   │   ├── FactLoan_100.csv
+│   │   └── FactRepayment_100.csv
 │   │
 │   └── Reference
 │
 ├── Documentation
-│
-├── PowerBI
-│   ├── Validation
-│   └── Dashboards
 │
 ├── Python
 │   ├── Generators
 │   ├── Utilities
 │   └── Data Validation
 │
+├── Power BI
+│   ├── Validation
+│   └── Dashboards
+│
 └── README Assets
 ```
 
-## 📊 Current Datasets
+---
+
+# Enterprise Business Rules
+
+The synthetic banking data generation engine incorporates realistic business rules including:
+
+- Salary-based retail loan eligibility
+- Minimum account age before lending
+- Segment-specific loan products
+- Income-based lending limits
+- Behaviour-driven repayment profiles
+- Consecutive missed repayment tracking
+- Days Past Due (DPD)
+- Outstanding principal reduction
+- Loan maturity logic
+- Payment behaviour deterioration
+- Multi-account customer relationships
+- Multi-currency account support
+- Branch-specific customer allocation
+
+---
+
+# Current Datasets
 
 | Dataset | Records | Status |
 |----------|--------:|--------|
 | DimCustomer | 100,000 | ✅ Complete |
 | DimBranch | 150 | ✅ Complete |
-| DimAccount | 160,040 | ✅ Complete |
+| DimAccount | 153,035 | ✅ Complete |
+| DimDate | 3,834 | ✅ Complete |
+| FactTransaction | 100M+ | ✅ Complete |
+| FactLoan | 4,937 Active Loans | ✅ Complete |
+| FactRepayment | 33,000+ | ✅ Complete |
 
+---
 
-## ✅ Data Quality & Validation
+# Data Validation
 
-Every generated dataset is validated in Power BI before being integrated into the warehouse.
+Every generated dataset is validated before being integrated into the enterprise warehouse.
 
-### DimCustomer Validation
+## Customer Validation
 
 ![DimCustomer Validation](README%20Assets/Validation/DimCustomer_Validation.jpg)
 
 ---
 
-### DimBranch Validation
+## Branch Validation
 
 ![DimBranch Validation](README%20Assets/Validation/DimBranch_Validation.jpg)
 
 ---
 
-### DimAccounts Validation
+## Account Validation
 
 ![DimAccounts Validation](README%20Assets/Validation/DimAccounts_Validation.jpg)
 
+---
 
-## 🏗️ Completed Data Warehouse Dimensions
+# Enterprise Data Warehouse
+
+## Dimension Tables
 
 | Dimension | Purpose |
 |-----------|---------|
-| DimCustomer | Customer demographics, segmentation and profile |
-| DimBranch | Banking network and branch operations |
-| DimAccount | Enterprise banking account portfolio, lifecycle, status, balances and currencies |
+| DimCustomer | Customer demographics, segmentation and banking profile |
+| DimBranch | Branch operations and geographic hierarchy |
+| DimAccount | Enterprise banking account portfolio |
+| DimDate | Enterprise calendar dimension |
 
+---
 
-## 🏦 Enterprise Banking Data Warehouse Progress
+## Fact Tables
+
+| Fact Table | Purpose |
+|------------|---------|
+| FactTransaction | Customer transaction history |
+| FactLoan | Enterprise lending portfolio |
+| FactRepayment | Loan repayment behaviour and credit monitoring |
+
+---
+
+# Early Warning Engine
+
+The platform is being developed to proactively identify emerging banking risks before they become business-critical.
+
+### Planned Detection Rules
+
+- Loan repayment deterioration
+- Consecutive missed repayments
+- High Days Past Due (DPD)
+- Customer churn indicators
+- Declining account activity
+- Branch underperformance
+- Revenue leakage
+- Customer profitability decline
+
+---
+
+# Current Roadmap
 
 | Layer | Status |
 |-------|--------|
 | Business Requirements | ✅ Complete |
 | Enterprise Data Model | ✅ Complete |
-| Data Warehouse Design | ✅ Complete |
-| DimCustomer | ✅ Complete |
-| DimBranch | ✅ Complete |
-| DimAccount | ✅ Complete |
-| FactTransactions | 🚧 Next Module |
-| FactLoans | ⏳ Planned |
-| FactComplaints | ⏳ Planned |
-| FactDigitalBanking | ⏳ Planned |
-| FactRevenue | ⏳ Planned |
+| Python Data Generation | ✅ Complete |
+| Enterprise Data Warehouse | ✅ Complete |
+| SQL Analytics Layer | 🚧 Next Phase |
+| Power BI Semantic Model | ⏳ Planned |
+| Executive Dashboards | ⏳ Planned |
 | Early Warning Engine | ⏳ Planned |
-| Executive Power BI Dashboard | ⏳ Planned |
+
+---
+
+# Repository Notes
+
+Only lightweight validation datasets are stored in this repository.
+
+Production datasets (including the 100M+ transaction table) are generated locally using the supplied Python generators and are intentionally excluded from version control due to their size.
+
+---
+
+# Author
+
+**Ogooluwakitan Odebunmi**
+
+Business Intelligence Developer | Data Analytics | SQL | Python | Power BI | Banking Analytics
+
+---
