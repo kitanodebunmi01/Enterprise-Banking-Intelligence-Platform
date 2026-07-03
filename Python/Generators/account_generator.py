@@ -99,14 +99,7 @@ def generate_current_balance(
 
     elif customer_segment == "SME":
 
-        if account_type == "Savings":
-
-            balance = random.randint(
-                200000,
-                15000000
-            )
-
-        else:
+        if account_type == "Current":
 
             balance = random.randint(
                 500000,
@@ -157,21 +150,7 @@ def generate_current_balance(
                     180000
                 )
 
-        else:
-
-            if currency == "NGN":
-
-                balance = random.randint(
-                    20000000,
-                    250000000
-                )
-
-            else:      # USD Fixed Deposit
-
-                balance = random.randint(
-                    10000,
-                    500000
-                )
+        
 
 
     
@@ -217,21 +196,7 @@ def generate_current_balance(
                     1200000
                 )
 
-        else:       # Fixed Deposit
-
-            if currency == "NGN":
-
-                balance = random.randint(
-                    100000000,
-                    3000000000
-                )
-
-            else:
-
-                balance = random.randint(
-                    50000,
-                    3000000
-                )
+        
 
 
     
@@ -254,21 +219,7 @@ def generate_current_balance(
                 10000000
             )
 
-        else:       # Fixed Deposit
-
-            if currency == "NGN":
-
-                balance = random.randint(
-                    100000000,
-                    10000000000
-                )
-
-            else:
-
-                balance = random.randint(
-                    500000,
-                    10000000
-                )
+        
 
 
     
@@ -364,8 +315,7 @@ for _, customer in customers.iterrows():
         number_of_accounts = random.randint(1, 2)
 
         account_types = [
-            "Current",
-            "Savings"
+            "Current"
         ]
 
     elif customer_segment == "HNWI":
@@ -375,8 +325,7 @@ for _, customer in customers.iterrows():
         account_types = [
             "Savings",
             "Current",
-            "Domiciliary",
-            "Fixed Deposit"
+            "Domiciliary"
         ]
 
     elif customer_segment == "UHNWI":
@@ -386,8 +335,7 @@ for _, customer in customers.iterrows():
         account_types = [
             "Savings",
             "Current",
-            "Domiciliary",
-            "Fixed Deposit"
+            "Domiciliary"
         ]
 
     else:       # Corporate
@@ -396,8 +344,7 @@ for _, customer in customers.iterrows():
 
         account_types = [
             "Current",
-            "Domiciliary",
-            "Fixed Deposit"
+            "Domiciliary"
         ]
 
     
@@ -423,53 +370,42 @@ for _, customer in customers.iterrows():
 
     elif customer_segment == "SME":
 
-        if number_of_accounts == 1:
-
-            customer_account_types = [
-                "Current"
-            ]
-
-        else:
-
-            customer_account_types = [
-                "Current",
-                "Savings"
-            ]
+        customer_account_types = [
+            "Current"
+        ]
 
     elif customer_segment == "HNWI":
 
-        if number_of_accounts == 3:
+        customer_account_types = [
 
-            customer_account_types = [
-                "Savings",
-                "Current",
-                "Domiciliary"
-            ]
+            "Savings",
 
-        else:
+            "Current",
 
-            customer_account_types = [
-                "Savings",
-                "Current",
-                "Domiciliary",
-                "Fixed Deposit"
-            ]
+            "Domiciliary"
+
+        ]
 
     elif customer_segment == "UHNWI":
 
         customer_account_types = [
+
             "Savings",
+
             "Current",
-            "Domiciliary",
-            "Fixed Deposit"
+
+            "Domiciliary"
+
         ]
 
     else:   # Corporate
 
         customer_account_types = [
+
             "Current",
-            "Domiciliary",
-            "Fixed Deposit"
+
+            "Domiciliary"
+
         ]
 
     
@@ -490,35 +426,7 @@ for _, customer in customers.iterrows():
 
             currency = "NGN"
 
-        elif account_type == "Fixed Deposit":
-
-            currency = random.choices(
-
-                [
-
-                    "NGN",
-
-                    "USD",
-
-                    "GBP",
-
-                    "EUR"
-
-                ],
-
-                weights=[
-
-                    88,
-
-                    8,
-
-                    2,
-
-                    2
-
-                ]
-
-            )[0]
+        
 
         else:
 
@@ -548,6 +456,10 @@ for _, customer in customers.iterrows():
 
         )[0]
 
+        # ACCOUNT CLOSURE DATE
+
+        date_closed = None
+
         
         # ACCOUNT OPENING DATE
         
@@ -567,6 +479,30 @@ for _, customer in customers.iterrows():
             customer_join_date +
             pd.Timedelta(days=opening_offset)
         ).date()
+
+        # ACCOUNT CLOSURE DATE
+
+        if account_status == "Closed":
+
+            days_open = (
+                today.date() - date_opened
+            ).days
+
+            if days_open > 30:
+
+                closure_offset = random.randint(
+                    30,
+                    days_open
+                )
+
+                date_closed = (
+                    pd.to_datetime(date_opened) +
+                    pd.Timedelta(days=closure_offset)
+                ).date()
+
+            else:
+
+                date_closed = today.date()
 
         # ACCOUNT AGE
 
@@ -614,6 +550,8 @@ for _, customer in customers.iterrows():
             "AccountStatus": account_status,
 
             "DateOpened": date_opened,
+
+            "DateClosed": date_closed,
 
             "CurrentBalance": current_balance
 

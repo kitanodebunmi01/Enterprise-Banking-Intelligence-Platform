@@ -20,7 +20,7 @@ TRANSACTION_END_DATE = datetime.today()
 # Set to None when generating the final dataset.
 
 
-MAX_DEVELOPMENT_ACCOUNTS = 100
+MAX_DEVELOPMENT_ACCOUNTS = None
 
 RANDOM_SEED = 42
 
@@ -459,9 +459,11 @@ print(f"Transaction Types  : {len(transaction_type_df):,}")
 
 # INITIALIZE TRANSACTION STORAGE
 
-transactions = []
+batch_transactions = []
 
 failed_transactions = 0
+
+transaction_id = 1
 
 # HELPER FUNCTIONS
 
@@ -835,6 +837,8 @@ def add_system_transaction(
     (fees, VAT, interest, etc.)
     """
 
+    global transaction_id
+
     transaction = get_transaction_definition(
         transaction_code
     )
@@ -853,9 +857,9 @@ def add_system_transaction(
         transaction_date.strftime("%Y%m%d")
     )
 
-    transactions.append({
+    batch_transactions.append({
 
-        "TransactionID": len(transactions) + 1,
+        "TransactionID": transaction_id,
 
         "AccountID": account["AccountID"],
 
@@ -882,6 +886,8 @@ def add_system_transaction(
         "BalanceAfter": balance_after
 
     })
+
+    transaction_id += 1
 
     return round(balance_after, 2)
 
@@ -939,9 +945,9 @@ def generate_month_end_postings(
 
         
 
-        # ACCOUNT MAINTENANCE
+    # ACCOUNT MAINTENANCE
 
-        if (
+    if (
 
             account["Currency"] == "NGN"
 
@@ -1087,37 +1093,10 @@ def generate_monthly_transactions(account, customer):
     Generates one month's transactions
     for a single account.
     """
-    print(
-        f"Processing Account "
-        f"{account['AccountID']:,} "
-        f"({customer['CustomerSegment']})"
-    )
 
     global failed_transactions
+    global transaction_id
 
-    '''print()
-
-    print("=" * 60)
-
-    print("ACCOUNT PROFILE")
-
-    print("=" * 60)
-
-    print(account)
-
-    print()
-
-    print("=" * 60)
-
-    print("CUSTOMER PROFILE")
-
-    print("=" * 60)
-
-    print(customer)
-
-    print()
-
-    print("Generating Monthly Timeline...\n")'''
 
     account_open_date = pd.to_datetime(account["DateOpened"])
 
@@ -1130,9 +1109,6 @@ def generate_monthly_transactions(account, customer):
 
     while current_month <= TRANSACTION_END_DATE:
 
-        '''print("=" * 50)
-        print(current_month.strftime("%B %Y"))
-        print("=" * 50)'''
 
         # Stop after account closure
         if (
@@ -1152,7 +1128,7 @@ def generate_monthly_transactions(account, customer):
             customer
         )
 
-        month_start_count = len(transactions)
+    
 
         monthly_debit_total = 0
 
@@ -1187,9 +1163,9 @@ def generate_monthly_transactions(account, customer):
                 "SALARY_CR"
             )
 
-            transactions.append({
+            batch_transactions.append({
 
-                "TransactionID": len(transactions) + 1,
+                "TransactionID": transaction_id,
 
                 "AccountID": account["AccountID"],
 
@@ -1216,6 +1192,8 @@ def generate_monthly_transactions(account, customer):
                 "BalanceAfter": balance_after
 
             })
+
+            transaction_id += 1
 
 
         for _ in range(monthly_transaction_count):
@@ -1325,9 +1303,9 @@ def generate_monthly_transactions(account, customer):
 
                     monthly_debit_total += amount
 
-            transactions.append({
+            batch_transactions.append({
 
-                "TransactionID": len(transactions) + 1,
+                "TransactionID": transaction_id,
 
                 "AccountID": account["AccountID"],
 
@@ -1354,6 +1332,8 @@ def generate_monthly_transactions(account, customer):
                 "BalanceAfter": balance_after
 
             })
+
+            transaction_id += 1
 
             
             
@@ -1426,14 +1406,7 @@ def generate_monthly_transactions(account, customer):
 
         )
 
-        month_end_count = len(transactions)
-
-        '''print(
-            f"Transactions This Month : "
-            f"{month_end_count - month_start_count}"
-        )'''
-
-        #print(f"Closing Balance : {running_balance:,}")
+        
 
         current_month = (
             pd.Timestamp(current_month)
@@ -1441,34 +1414,62 @@ def generate_monthly_transactions(account, customer):
         ).to_pydatetime()
 
 
+if MAX_DEVELOPMENT_ACCOUNTS is None:
 
-# TEST THE GENERATOR
+    sample_accounts = account_df
 
-'''test_account = account_df[
-    (account_df["AccountStatus"] == "Active") &
-    (account_df["AccountType"] == "Current") &
-    (account_df["Currency"] == "USD") &
-    (account_df["CustomerID"].isin(
-        customer_df[
-            customer_df["CustomerSegment"] == "Corporate"
-        ]["CustomerID"]
-    ))
-].iloc[0]
+else:
 
-customer = customer_df[
-    customer_df["CustomerID"] == test_account["CustomerID"]
-].iloc[0]
+    sample_accounts = account_df.head(
+        MAX_DEVELOPMENT_ACCOUNTS
+    )
 
-generate_monthly_transactions(test_account, customer)
-'''
+output_path = os.path.join(
 
-sample_accounts = account_df.head(
+    project_root,
 
-    MAX_DEVELOPMENT_ACCOUNTS
+    "Data",
+
+    "Facts",
+
+    "FactTransaction.csv"
 
 )
 
-for _, account in sample_accounts.iterrows():
+checkpoint_path = os.path.join(
+
+    project_root,
+
+    "Data",
+
+    "Checkpoints",
+
+    "transaction_checkpoint.txt"
+
+)
+
+
+start_index = 0
+
+if os.path.exists(checkpoint_path):
+
+    with open(checkpoint_path, "r") as f:
+
+        start_index = int(f.read())
+
+    print(f"Resuming from account {start_index:,}")
+
+counter = start_index
+
+for index, account in sample_accounts.iloc[start_index:].iterrows():
+
+    counter += 1
+
+    if counter % 1000 == 0:
+
+        print(
+            f"Processed {counter:,} accounts..."
+        )
 
     customer = customer_df[
         customer_df["CustomerID"] ==
@@ -1480,46 +1481,74 @@ for _, account in sample_accounts.iterrows():
         customer
     )
 
+    if counter % 1000 == 0:
+
+        pd.DataFrame(
+
+            batch_transactions
+
+        ).to_csv(
+
+            output_path,
+
+            mode="a",
+
+            header=not os.path.exists(output_path),
+
+            index=False
+
+        )
+
+        batch_transactions.clear()
+
+        with open(
+
+            checkpoint_path,
+
+            "w"
+
+        ) as f:
+
+            f.write(str(counter))
+
+        print(
+            f"Checkpoint saved ({counter:,} accounts)"
+        )
+
 print()
 
 print("=" * 60)
 print("TRANSACTIONS GENERATED")
 print("=" * 60)
 
-transaction_df = pd.DataFrame(transactions)
 
-'''print(
-    transaction_df[
-        [
-            "TransactionType",
-            "Direction",
-            "Channel",
-            "Amount",
-            "BalanceBefore",
-            "BalanceAfter"
-        ]
-    ].head(50)
-)'''
 
-output_path = os.path.join(
 
-    project_root,
+if batch_transactions:
 
-    "Data",
+    pd.DataFrame(
 
-    "Facts",
+        batch_transactions
 
-    "FactTransaction_100.csv"
+    ).to_csv(
 
-)
+        output_path,
 
-transaction_df.to_csv(
+        mode="a",
 
-    output_path,
+        header=False,
 
-    index=False
+        index=False
 
-)
+    )
+
+    batch_transactions.clear()
+
+transaction_df = pd.read_csv(output_path)
+
+if os.path.exists(checkpoint_path):
+
+    os.remove(checkpoint_path)
 
 print()
 
@@ -1527,8 +1556,8 @@ print(f"Transactions generated: {len(transaction_df):,}")
 
 print(f"Saved to: {output_path}")
 
-'''print()
-print(f"Failed Transactions: {failed_transactions:,}")'''
+print()
+print(f"Failed Transactions: {failed_transactions:,}")
 
 print()
 
