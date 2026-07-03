@@ -213,6 +213,31 @@ Every generated dataset is validated before being integrated into the enterprise
 
 ---
 
+## Date Validation
+
+![DimDate Validation](README%20Assets/Validation/DimDate_Validation.jpg)
+
+---
+
+## Loan Validation
+
+![FactLoan Validation](README%20Assets/Validation/FactLoan_Validation.jpg)
+
+---
+
+## Repayment Validation
+
+![FactRepayment Validation](README%20Assets/Validation/FactRepayment_Validation.jpg)
+
+---
+
+## Transaction Validation
+
+![FactTransaction Validation](README%20Assets/Validation/FactTransaction_Validation.jpg)
+
+---
+
+
 # Enterprise Data Warehouse
 
 ## Dimension Tables
