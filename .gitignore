@@ -2,8 +2,10 @@
 Data/Facts/FactTransaction.csv
 Data/Facts/FactLoan.csv
 Data/Facts/FactRepayment.csv
+Data/Fact/FactComplaint.csv
 
 # Ignore any CSV with these exact names anywhere
 **/FactTransaction.csv
 **/FactLoan.csv
 **/FactRepayment.csv
+**/FactComplaint.csv
