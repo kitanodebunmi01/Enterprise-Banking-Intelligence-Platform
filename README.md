@@ -30,7 +30,8 @@ Enterprise Data Warehouse
 ├── DimDate
 ├── FactTransaction
 ├── FactLoan
-└── FactRepayment
+├── FactRepayment
+└── FactComplaint
         │
         ▼
 SQL Server Analytics Layer
@@ -61,15 +62,17 @@ Early Warning & Revenue Protection Engine
 
 # Project Statistics
 
-| Component | Volume |
-|-----------|--------:|
-| Customers | 100,000 |
-| Accounts | 153,035 |
-| Branches | 150 |
-| Calendar Dates | 3,834 |
-| Transactions | 100M+ |
-| Active Loans | 4,937 |
-| Repayment Records | 33,000+ |
+| Component         |     Volume |
+| ----------------- | ---------: |
+| Customers         |    100,000 |
+| Accounts          |    153,035 |
+| Branches          |        150 |
+| Calendar Dates    |      3,834 |
+| Transactions      |      100M+ |
+| Active Loans      |      4,937 |
+| Repayment Records |    33,000+ |
+| Complaint Records | **1.13M+** |
+
 
 ---
 
@@ -100,6 +103,7 @@ Early Warning & Revenue Protection Engine
 - [x] FactTransaction
 - [x] FactLoan
 - [x] FactRepayment
+- [x] FactComplaint
 
 ---
 
@@ -174,20 +178,30 @@ The synthetic banking data generation engine incorporates realistic business rul
 - Multi-account customer relationships
 - Multi-currency account support
 - Branch-specific customer allocation
+- Behaviour-driven complaint profiles
+- Customer complaint frequency modelling
+- Complaint trend simulation
+- Complaint severity modelling
+- Category-driven complaint channels
+- Resolution SLA tracking
+- Customer satisfaction modelling
+- Repeat complaint detection
 
 ---
 
 # Current Datasets
 
-| Dataset | Records | Status |
-|----------|--------:|--------|
-| DimCustomer | 100,000 | ✅ Complete |
-| DimBranch | 150 | ✅ Complete |
-| DimAccount | 153,035 | ✅ Complete |
-| DimDate | 3,834 | ✅ Complete |
-| FactTransaction | 100M+ | ✅ Complete |
-| FactLoan | 4,937 Active Loans | ✅ Complete |
-| FactRepayment | 33,000+ | ✅ Complete |
+| Dataset           |            Records | Status     |
+| ----------------- | -----------------: | ---------- |
+| DimCustomer       |            100,000 | ✅ Complete |
+| DimBranch         |                150 | ✅ Complete |
+| DimAccount        |            153,035 | ✅ Complete |
+| DimDate           |              3,834 | ✅ Complete |
+| FactTransaction   |              100M+ | ✅ Complete |
+| FactLoan          | 4,937 Active Loans | ✅ Complete |
+| FactRepayment     |            33,000+ | ✅ Complete |
+| **FactComplaint** |         **1.13M+** | ✅ Complete |
+
 
 ---
 
@@ -237,6 +251,12 @@ Every generated dataset is validated before being integrated into the enterprise
 
 ---
 
+## Complaint Validation
+
+![FactComplaint Validation](README%20Assets/Validation/FactComplaint_Validation.jpg)
+
+---
+
 
 # Enterprise Data Warehouse
 
@@ -258,6 +278,7 @@ Every generated dataset is validated before being integrated into the enterprise
 | FactTransaction | Customer transaction history |
 | FactLoan | Enterprise lending portfolio |
 | FactRepayment | Loan repayment behaviour and credit monitoring |
+| FactComplaint | Customer experience, complaint lifecycle, SLA monitoring and service quality analytics |
 
 ---
 
@@ -270,28 +291,53 @@ The platform is being developed to proactively identify emerging banking risks b
 - Loan repayment deterioration
 - Consecutive missed repayments
 - High Days Past Due (DPD)
-- Customer churn indicators
+- Complaint escalation trends
+- Repeat complaint behaviour
+- SLA breaches
 - Declining account activity
+- Customer churn indicators
 - Branch underperformance
 - Revenue leakage
 - Customer profitability decline
 
 ---
 
-# Current Roadmap
+# Project Roadmap
 
-| Layer | Status |
-|-------|--------|
-| Business Requirements | ✅ Complete |
-| Enterprise Data Model | ✅ Complete |
-| Python Data Generation | ✅ Complete |
-| Enterprise Data Warehouse | ✅ Complete |
-| SQL Analytics Layer | 🚧 Next Phase |
-| Power BI Semantic Model | ⏳ Planned |
-| Executive Dashboards | ⏳ Planned |
-| Early Warning Engine | ⏳ Planned |
+| Layer                         | Status     |
+| ----------------------------- | ---------- |
+| Business Requirements         | ✅ Complete |
+| Enterprise Data Model         | ✅ Complete |
+| Python Data Generation Engine | ✅ Complete |
+| Enterprise Data Warehouse     | ✅ Complete |
+| SQL Server Warehouse          | 🚧 Next    |
+| Analytical SQL Views          | ⏳ Planned  |
+| Power BI Semantic Model       | ⏳ Planned  |
+| Executive Dashboards          | ⏳ Planned  |
+| Early Warning Engine          | ⏳ Planned  |
+
 
 ---
+
+# Project Progress Diagram
+
+Business Requirements        ✅
+        │
+Enterprise Data Model        ✅
+        │
+Python Data Generation       ✅
+        │
+Enterprise Warehouse         ✅
+        │
+SQL Server                   🚧
+        │
+Power BI                     ⏳
+        │
+Early Warning Engine         ⏳
+
+---
+
+
 
 # Repository Notes
 
