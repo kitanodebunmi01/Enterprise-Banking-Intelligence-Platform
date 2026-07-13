@@ -131,3 +131,32 @@ GO
 
 ----------------------------------------------------------------------
 
+CREATE TABLE stg.DimAccount
+(
+
+    AccountID INT,
+
+    AccountNumber VARCHAR(20),
+
+    CustomerID INT,
+
+    BranchID INT,
+
+    AccountType VARCHAR(30),
+
+    Currency CHAR(3),
+
+    AccountStatus VARCHAR(20),
+
+    DateOpened DATE,
+
+    DateClosed DATE,
+
+    CurrentBalance DECIMAL(18,2)
+
+);
+
+GO
+
+------------------------------------------------------------------------
+

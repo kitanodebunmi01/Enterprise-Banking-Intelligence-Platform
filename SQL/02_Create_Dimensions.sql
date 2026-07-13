@@ -129,3 +129,31 @@ GO
 
 ---------------------------------------------------------------------------------
 
+CREATE TABLE dbo.DimAccount
+(
+    AccountID INT NOT NULL,
+
+    AccountNumber VARCHAR(20) NOT NULL,
+
+    CustomerID INT NOT NULL,
+
+    BranchID INT NOT NULL,
+
+    AccountType VARCHAR(30) NOT NULL,
+
+    Currency CHAR(3) NOT NULL,
+
+    AccountStatus VARCHAR(20) NOT NULL,
+
+    DateOpened DATE NOT NULL,
+
+    DateClosed DATE NULL,
+
+    CurrentBalance DECIMAL(18,2) NOT NULL
+
+);
+
+GO
+
+-------------------------------------------------------------------------------
+

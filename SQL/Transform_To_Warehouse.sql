@@ -230,4 +230,57 @@ GO
 
 -------------------------------------------------------------------------------------------
 
+TRUNCATE TABLE dbo.DimAccount;
+GO
+
+INSERT INTO dbo.DimAccount
+(
+    AccountID,
+    AccountNumber,
+    CustomerID,
+    BranchID,
+    AccountType,
+    Currency,
+    AccountStatus,
+    DateOpened,
+    DateClosed,
+    CurrentBalance
+)
+
+SELECT
+
+    AccountID,
+
+    AccountNumber,
+
+    CustomerID,
+
+    BranchID,
+
+    AccountType,
+
+    Currency,
+
+    AccountStatus,
+
+    DateOpened,
+
+    DateClosed,
+
+    CurrentBalance
+
+FROM stg.DimAccount;
+
+GO
+
+
+SELECT COUNT(*) AS AccountRows
+FROM dbo.DimAccount;
+
+SELECT TOP (10) *
+FROM dbo.DimAccount;
+
+GO
+
+----------------------------------------------------------------------------------
 

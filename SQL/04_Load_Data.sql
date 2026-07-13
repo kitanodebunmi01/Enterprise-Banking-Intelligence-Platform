@@ -86,5 +86,31 @@ GO
 
 ------------------------------------------------------------------------------
 
+TRUNCATE TABLE stg.DimAccount;
+GO
+
+BULK INSERT stg.DimAccount
+
+FROM 'C:\Users\user\Documents\Documents\Projects\Enterprise Banking Intelligence & Early Warning Platform (EBIEWP)\Data\Dimensions\DimAccount.csv'
+
+WITH
+(
+    FORMAT='CSV',
+    FIRSTROW=2,
+    FIELDTERMINATOR=',',
+    ROWTERMINATOR='\n',
+    TABLOCK
+);
+
+GO
+
+SELECT COUNT(*) AS StagingRows
+
+FROM stg.DimAccount;
+
+GO
+
+------------------------------------------------------------------------
+
 
 
