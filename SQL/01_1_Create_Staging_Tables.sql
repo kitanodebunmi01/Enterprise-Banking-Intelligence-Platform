@@ -56,3 +56,39 @@ CREATE TABLE stg.DimDate
 );
 
 GO
+
+---------------------------------------------------------------------------
+
+CREATE TABLE stg.DimBranch
+(
+
+    BranchID INT,
+
+    BranchCode VARCHAR(10),
+
+    BranchName VARCHAR(100),
+
+    City VARCHAR(50),
+
+    BranchNumber INT,
+
+    State VARCHAR(30),
+
+    Region VARCHAR(20),
+
+    OpeningDate DATE,
+
+    EmployeeCount SMALLINT,
+
+    BranchManagerID VARCHAR(10),
+
+    BranchManagerName VARCHAR(100),
+
+    BranchStatus VARCHAR(20)
+
+);
+
+GO
+
+---------------------------------------------------------------
+

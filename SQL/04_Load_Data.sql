@@ -34,3 +34,30 @@ GO
 
 SELECT TOP 5 *
 FROM stg.DimDate;
+
+-----------------------------------------------------------------------------------
+
+TRUNCATE TABLE stg.DimBranch;
+GO
+
+BULK INSERT stg.DimBranch
+FROM 'C:\Users\user\Documents\Documents\Projects\Enterprise Banking Intelligence & Early Warning Platform (EBIEWP)\Data\Dimensions\DimBranch.csv'
+WITH
+(
+    FORMAT = 'CSV',
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n',
+    TABLOCK
+);
+
+GO
+
+SELECT COUNT(*) AS StagingRows
+FROM stg.DimBranch;
+GO
+
+------------------------------------------------------------------------
+
+
+

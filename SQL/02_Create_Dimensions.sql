@@ -54,3 +54,39 @@ CREATE TABLE dbo.DimDate
 );
 
 GO
+
+-------------------------------------------------------------------------------------
+
+CREATE TABLE dbo.DimBranch
+(
+
+    BranchID INT NOT NULL,
+
+    BranchCode VARCHAR(10) NOT NULL,
+
+    BranchName VARCHAR(100) NOT NULL,
+
+    City VARCHAR(50) NOT NULL,
+
+    BranchNumber INT NOT NULL,
+
+    State VARCHAR(30) NOT NULL,
+
+    Region VARCHAR(20) NOT NULL,
+
+    OpeningDate DATE NOT NULL,
+
+    EmployeeCount SMALLINT NOT NULL,
+
+    BranchManagerID VARCHAR(10) NOT NULL,
+
+    BranchManagerName VARCHAR(100) NOT NULL,
+
+    BranchStatus VARCHAR(20) NOT NULL
+
+);
+
+GO
+
+------------------------------------------------------------------------
+
