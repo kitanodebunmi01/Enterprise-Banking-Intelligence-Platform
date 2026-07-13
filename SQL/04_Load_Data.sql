@@ -112,5 +112,32 @@ GO
 
 ------------------------------------------------------------------------
 
+TRUNCATE TABLE stg.DimTransactionType;
+GO
+
+BULK INSERT stg.DimTransactionType
+
+FROM 'C:\Users\user\Documents\Documents\Projects\Enterprise Banking Intelligence & Early Warning Platform (EBIEWP)\Data\Dimensions\DimTransactionType.csv'
+
+WITH
+(
+    FORMAT='CSV',
+    FIRSTROW=2,
+    FIELDTERMINATOR=',',
+    ROWTERMINATOR='\n',
+    TABLOCK
+);
+
+GO
+
+SELECT COUNT(*) AS StagingRows
+
+FROM stg.DimTransactionType;
+
+GO
+
+-------------------------------------------------------
+
+
 
 

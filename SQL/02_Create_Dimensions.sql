@@ -157,3 +157,24 @@ GO
 
 -------------------------------------------------------------------------------
 
+CREATE TABLE dbo.DimTransactionType
+(
+
+    TransactionTypeID TINYINT NOT NULL,
+
+    TransactionCode VARCHAR(20) NOT NULL,
+
+    TransactionCategory VARCHAR(30) NOT NULL,
+
+    TransactionType VARCHAR(50) NOT NULL,
+
+    Direction VARCHAR(10) NOT NULL,
+
+    Channel VARCHAR(30) NOT NULL
+
+);
+
+GO
+
+--------------------------------------------------------------------
+

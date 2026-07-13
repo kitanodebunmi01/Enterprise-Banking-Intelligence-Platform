@@ -284,3 +284,53 @@ GO
 
 ----------------------------------------------------------------------------------
 
+TRUNCATE TABLE dbo.DimTransactionType;
+GO
+
+INSERT INTO dbo.DimTransactionType
+(
+
+    TransactionTypeID,
+
+    TransactionCode,
+
+    TransactionCategory,
+
+    TransactionType,
+
+    Direction,
+
+    Channel
+
+)
+
+SELECT
+
+    TransactionTypeID,
+
+    TransactionCode,
+
+    TransactionCategory,
+
+    TransactionType,
+
+    Direction,
+
+    Channel
+
+FROM stg.DimTransactionType;
+
+GO
+
+SELECT COUNT(*) AS WarehouseRows
+
+FROM dbo.DimTransactionType;
+
+SELECT *
+
+FROM dbo.DimTransactionType;
+
+GO
+
+---------------------------------------------------------------
+

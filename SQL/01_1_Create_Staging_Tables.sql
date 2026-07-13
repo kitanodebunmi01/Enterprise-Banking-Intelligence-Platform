@@ -160,3 +160,24 @@ GO
 
 ------------------------------------------------------------------------
 
+CREATE TABLE stg.DimTransactionType
+(
+
+    TransactionTypeID TINYINT,
+
+    TransactionCode VARCHAR(20),
+
+    TransactionCategory VARCHAR(30),
+
+    TransactionType VARCHAR(50),
+
+    Direction VARCHAR(10),
+
+    Channel VARCHAR(30)
+
+);
+
+GO
+
+-----------------------------------------------------
+
