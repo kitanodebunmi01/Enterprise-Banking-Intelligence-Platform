@@ -92,3 +92,42 @@ GO
 
 ---------------------------------------------------------------
 
+CREATE TABLE stg.DimCustomer
+(
+
+    CustomerID INT,
+
+    BranchID INT,
+
+    FirstName VARCHAR(50),
+
+    LastName VARCHAR(50),
+
+    Gender VARCHAR(10),
+
+    DateOfBirth DATE,
+
+    Age TINYINT,
+
+    PhoneNumber VARCHAR(20),
+
+    Email VARCHAR(100),
+
+    State VARCHAR(30),
+
+    City VARCHAR(50),
+
+    CustomerSegment VARCHAR(20),
+
+    Occupation VARCHAR(100),
+
+    AnnualIncome DECIMAL(18,2),
+
+    DateJoined DATE
+
+);
+
+GO
+
+----------------------------------------------------------------------
+

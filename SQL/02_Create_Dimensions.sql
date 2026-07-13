@@ -90,3 +90,42 @@ GO
 
 ------------------------------------------------------------------------
 
+CREATE TABLE dbo.DimCustomer
+(
+
+    CustomerID INT NOT NULL,
+
+    BranchID INT NOT NULL,
+
+    FirstName VARCHAR(50) NOT NULL,
+
+    LastName VARCHAR(50) NOT NULL,
+
+    Gender VARCHAR(10) NOT NULL,
+
+    DateOfBirth DATE NOT NULL,
+
+    Age TINYINT NOT NULL,
+
+    PhoneNumber VARCHAR(20) NOT NULL,
+
+    Email VARCHAR(100) NOT NULL,
+
+    State VARCHAR(30) NOT NULL,
+
+    City VARCHAR(50) NOT NULL,
+
+    CustomerSegment VARCHAR(20) NOT NULL,
+
+    Occupation VARCHAR(100) NOT NULL,
+
+    AnnualIncome DECIMAL(18,2) NOT NULL,
+
+    DateJoined DATE NOT NULL
+
+);
+
+GO
+
+---------------------------------------------------------------------------------
+

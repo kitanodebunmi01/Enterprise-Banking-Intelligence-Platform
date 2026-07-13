@@ -10,6 +10,8 @@ Loads raw CSV datasets into the staging layer.
 USE EBIEWP;
 GO
 
+TRUNCATE TABLE stg.DimDate;
+GO
 
 BULK INSERT stg.DimDate
 
@@ -58,6 +60,31 @@ FROM stg.DimBranch;
 GO
 
 ------------------------------------------------------------------------
+
+TRUNCATE TABLE stg.DimCustomer;
+GO
+
+BULK INSERT stg.DimCustomer
+
+FROM 'C:\Users\user\Documents\Documents\Projects\Enterprise Banking Intelligence & Early Warning Platform (EBIEWP)\Data\Dimensions\DimCustomer.csv'
+
+WITH
+(
+    FORMAT = 'CSV',
+    FIRSTROW = 2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n',
+    TABLOCK
+);
+
+GO
+
+SELECT COUNT(*) AS StagingRows
+FROM stg.DimCustomer;
+
+GO
+
+------------------------------------------------------------------------------
 
 
 

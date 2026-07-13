@@ -11,6 +11,9 @@ data warehouse.
 USE EBIEWP;
 GO
 
+TRUNCATE TABLE dbo.DimDate;
+GO
+
 INSERT INTO dbo.DimDate
 (
     DateKey,
@@ -142,5 +145,89 @@ FROM dbo.DimBranch;
 
 GO
 -------------------------------------------------------------------------
+
+TRUNCATE TABLE dbo.DimCustomer;
+GO
+
+INSERT INTO dbo.DimCustomer
+(
+
+    CustomerID,
+
+    BranchID,
+
+    FirstName,
+
+    LastName,
+
+    Gender,
+
+    DateOfBirth,
+
+    Age,
+
+    PhoneNumber,
+
+    Email,
+
+    State,
+
+    City,
+
+    CustomerSegment,
+
+    Occupation,
+
+    AnnualIncome,
+
+    DateJoined
+
+)
+
+SELECT
+
+    CustomerID,
+
+    BranchID,
+
+    FirstName,
+
+    LastName,
+
+    Gender,
+
+    DateOfBirth,
+
+    Age,
+
+    PhoneNumber,
+
+    Email,
+
+    State,
+
+    City,
+
+    CustomerSegment,
+
+    Occupation,
+
+    AnnualIncome,
+
+    DateJoined
+
+FROM stg.DimCustomer;
+
+GO
+
+SELECT COUNT(*) AS WarehouseRows
+FROM dbo.DimCustomer;
+
+SELECT TOP (10) *
+FROM dbo.DimCustomer;
+
+GO
+
+-------------------------------------------------------------------------------------------
 
 
