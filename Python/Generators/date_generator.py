@@ -1,3 +1,4 @@
+'''
 import pandas as pd
 
 from datetime import datetime
@@ -160,3 +161,11 @@ print(f"Rows : {len(dim_date):,}")
 print()
 
 print(dim_date.head())
+'''
+
+
+import pandas as pd
+
+df = pd.read_csv("Data/Dimensions/DimDate.csv")
+
+print(df.columns.tolist())
