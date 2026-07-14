@@ -371,7 +371,6 @@ def create_repayment_record(
             
 
 
-
 print()
 
 print("=" * 60)

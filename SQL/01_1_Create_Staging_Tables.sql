@@ -181,3 +181,159 @@ GO
 
 -----------------------------------------------------
 
+CREATE TABLE stg.FactTransaction
+(
+
+    TransactionID BIGINT,
+
+    AccountID INT,
+
+    CustomerID INT,
+
+    BranchID INT,
+
+    TransactionDate DATE,
+
+    DateKey INT,
+
+    TransactionTypeID TINYINT,
+
+    TransactionType VARCHAR(50),
+
+    Direction VARCHAR(10),
+
+    Channel VARCHAR(30),
+
+    Amount DECIMAL(18,2),
+
+    BalanceBefore DECIMAL(18,2),
+
+    BalanceAfter DECIMAL(18,2)
+
+);
+
+GO
+
+--------------------------------------------------------------------------
+
+CREATE TABLE stg.FactLoan
+(
+
+    LoanID INT,
+
+    CustomerID INT,
+
+    AccountID INT,
+
+    BranchID INT,
+
+    DateKey INT,
+
+    LoanProduct VARCHAR(50),
+
+    Currency CHAR(3),
+
+    OriginalLoanAmount DECIMAL(18,2),
+
+    MonthlyInstallment DECIMAL(18,2),
+
+    OutstandingPrincipal DECIMAL(18,2),
+
+    InterestRate DECIMAL(5,2),
+
+    TenureMonths SMALLINT,
+
+    DisbursementDate DATE,
+
+    MaturityDate DATE,
+
+    LoanStatus VARCHAR(20)
+
+);
+
+GO
+
+-----------------------------------------------------------------------------
+
+CREATE TABLE stg.FactRepayment
+(
+
+    RepaymentID INT,
+
+    LoanID INT,
+
+    CustomerID INT,
+
+    AccountID INT,
+
+    BranchID INT,
+
+    DateKey INT,
+
+    LoanAgeMonths SMALLINT,
+
+    ScheduledPaymentDate VARCHAR(10),
+
+    ActualPaymentDate VARCHAR(10),
+
+    ExpectedAmount DECIMAL(18,2),
+
+    AmountPaid DECIMAL(18,2),
+
+    PaymentStatus VARCHAR(20),
+
+    PaymentBehaviour VARCHAR(30),
+
+    ConsecutiveMissedPayments TINYINT,
+
+    DaysPastDue SMALLINT,
+
+    OutstandingPrincipal DECIMAL(18,2)
+
+);
+
+GO
+
+-------------------------------------------------------------------------
+
+CREATE TABLE stg.FactComplaint
+(
+
+    ComplaintID INT,
+
+    CustomerID INT,
+
+    AccountID INT,
+
+    BranchID INT,
+
+    DateKey INT,
+
+    ComplaintDate VARCHAR(10),
+
+    ComplaintCategory VARCHAR(50),
+
+    ComplaintChannel VARCHAR(30),
+
+    Severity VARCHAR(20),
+
+    ResolutionStatus VARCHAR(20),
+
+    ResolutionDays SMALLINT,
+
+    MetSLA VARCHAR(10),
+
+    ResolutionDate VARCHAR(10),
+
+    CustomerSatisfaction VARCHAR(20),
+
+    ComplaintBehaviour VARCHAR(30),
+
+    RepeatComplaintCount TINYINT
+
+);
+
+GO
+
+-----------------------------------------------------------------
+
