@@ -147,7 +147,7 @@ CREATE TABLE dbo.FactComplaint
 
     ResolutionDate DATE NULL,
 
-    CustomerSatisfaction VARCHAR(20) NOT NULL,
+    CustomerSatisfaction VARCHAR(20) NULL,
 
     ComplaintBehaviour VARCHAR(30) NOT NULL,
 

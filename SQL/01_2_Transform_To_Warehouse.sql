@@ -569,39 +569,22 @@ GO
 
 INSERT INTO dbo.FactComplaint
 (
-
     ComplaintID,
-
     CustomerID,
-
     AccountID,
-
     BranchID,
-
     DateKey,
-
     ComplaintDate,
-
     ComplaintCategory,
-
     ComplaintChannel,
-
     Severity,
-
     ResolutionStatus,
-
     ResolutionDays,
-
     MetSLA,
-
     ResolutionDate,
-
     CustomerSatisfaction,
-
     ComplaintBehaviour,
-
     RepeatComplaintCount
-
 )
 
 SELECT
@@ -629,45 +612,37 @@ SELECT
     ResolutionDays,
 
     CASE
-
         WHEN LOWER(LTRIM(RTRIM(MetSLA))) = 'yes' THEN 1
-
         ELSE 0
-
-    END,
+    END AS MetSLA,
 
     CASE
-
         WHEN ResolutionDate IS NULL
-
              OR LTRIM(RTRIM(ResolutionDate)) = ''
-
         THEN NULL
-
         ELSE CAST(ResolutionDate AS DATE)
+    END AS ResolutionDate,
 
-    END,
-
-    CustomerSatisfaction,
+    CASE
+        WHEN LTRIM(RTRIM(ResolutionStatus)) IN ('Pending', 'Escalated')
+            THEN NULL
+        ELSE CustomerSatisfaction
+    END AS CustomerSatisfaction,
 
     ComplaintBehaviour,
 
     RepeatComplaintCount
 
 FROM stg.FactComplaint;
-
 GO
 
 SELECT COUNT(*) AS WarehouseRows
-
 FROM dbo.FactComplaint;
-
 GO
 
 SELECT TOP (10) *
-
 FROM dbo.FactComplaint;
-
 GO
+
 ---------------------------------------------------------------
 

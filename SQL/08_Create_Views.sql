@@ -701,7 +701,14 @@ SELECT
 
     AVG(Amount) AS AverageTransactionValue,
 
-    MAX(DateKey) AS LastTransactionDate
+    MAX(
+        DATEFROMPARTS
+        (
+            DateKey / 10000,
+            (DateKey % 10000) / 100,
+            DateKey % 100
+        )
+    ) AS LastTransactionDate
 
 FROM dbo.FactTransaction
 
@@ -777,7 +784,9 @@ SELECT
 
     DaysPastDue,
 
-    ConsecutiveMissedPayments
+    ConsecutiveMissedPayments,
+
+    ActualPaymentDate
 
 FROM LatestRepayment
 
@@ -800,7 +809,9 @@ SELECT
 
     SUM(CASE WHEN CustomerSatisfaction = 'Satisfied' THEN 1 ELSE 0 END) AS SatisfiedComplaints,
 
-    SUM(CASE WHEN CustomerSatisfaction = 'Unsatisfied' THEN 1 ELSE 0 END) AS UnsatisfiedComplaints
+    SUM(CASE WHEN CustomerSatisfaction = 'Unsatisfied' THEN 1 ELSE 0 END) AS UnsatisfiedComplaints,
+
+    MAX(ComplaintDate) AS LastComplaintDate
 
 FROM dbo.FactComplaint
 
@@ -851,6 +862,42 @@ SELECT
     AS AverageTransactionValue,
 
     trx.LastTransactionDate,
+
+    CASE
+
+        WHEN
+            ISNULL(repay.ActualPaymentDate,'19000101') >= ISNULL(trx.LastTransactionDate,'19000101')
+            AND
+            ISNULL(repay.ActualPaymentDate,'19000101') >= ISNULL(comp.LastComplaintDate,'19000101')
+        THEN repay.ActualPaymentDate
+
+        WHEN
+            ISNULL(comp.LastComplaintDate,'19000101') >= ISNULL(trx.LastTransactionDate,'19000101')
+        THEN comp.LastComplaintDate
+
+        ELSE trx.LastTransactionDate
+
+    END
+    AS LastCustomerActivityDate,
+
+    CASE
+
+        WHEN
+            ISNULL(repay.ActualPaymentDate,'19000101') >= ISNULL(trx.LastTransactionDate,'19000101')
+            AND
+            ISNULL(repay.ActualPaymentDate,'19000101') >= ISNULL(comp.LastComplaintDate,'19000101')
+
+        THEN 'Loan Repayment'
+
+        WHEN
+            ISNULL(comp.LastComplaintDate,'19000101') >= ISNULL(trx.LastTransactionDate,'19000101')
+
+        THEN 'Customer Complaint'
+
+        ELSE 'Financial Transaction'
+
+    END
+    AS LastActivitySource,
 
     
     -- Loan Portfolio
