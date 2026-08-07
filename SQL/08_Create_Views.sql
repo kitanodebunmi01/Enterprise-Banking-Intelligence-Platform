@@ -667,7 +667,7 @@ FROM dbo.vw_LoanEarlyWarning;
 
 --------------------------------------------------------------------------------------------------------
 
-CREATE VIEW dbo.vw_Customer360
+ALTER VIEW dbo.vw_Customer360
 AS
 
 WITH
@@ -685,6 +685,43 @@ SELECT
 FROM dbo.DimAccount
 
 GROUP BY CustomerID
+
+),
+
+CustomerBranch AS
+(
+
+    SELECT
+
+        CustomerID,
+
+        BranchID,
+
+        ROW_NUMBER() OVER
+        (
+
+            PARTITION BY CustomerID
+
+            ORDER BY CurrentBalance DESC
+
+        ) AS rn
+
+    FROM dbo.DimAccount
+
+),
+
+PrimaryBranch AS
+(
+
+    SELECT
+
+        CustomerID,
+
+        BranchID
+
+    FROM CustomerBranch
+
+    WHERE rn = 1
 
 ),
 
@@ -836,6 +873,11 @@ SELECT
     dc.State,
     dc.City,
     dc.DateJoined,
+    pb.BranchID,
+
+    db.BranchName,
+
+    db.Region,
 
     
     -- Banking Relationship
@@ -1021,6 +1063,14 @@ FROM dbo.DimCustomer dc
 LEFT JOIN AccountSummary acc
 
     ON dc.CustomerID = acc.CustomerID
+
+LEFT JOIN PrimaryBranch pb
+
+    ON dc.CustomerID = pb.CustomerID
+
+LEFT JOIN dbo.DimBranch db
+
+    ON pb.BranchID = db.BranchID
 
 LEFT JOIN TransactionSummary trx
 
