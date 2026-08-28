@@ -1,9 +1,12 @@
 # Enterprise Banking Intelligence & Early Warning Platform (EBIEWP)
 
-![Status](https://img.shields.io/badge/Status-SQL%20Implementation%20Complete-success)
+**A business intelligence and early-warning decision platform that transforms customer, financial, repayment and service data into actionable customer-risk intelligence and automated stakeholder intervention alerts.**
+
+![Status](https://img.shields.io/badge/Status-Complete-success)
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-red)
-![Power BI](https://img.shields.io/badge/Power%20BI-In%20Progress-yellow)
+![Power BI](https://img.shields.io/badge/Power%20BI-Complete-yellow)
+![Automation](https://img.shields.io/badge/Automation-n8n-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
@@ -35,313 +38,616 @@ EBIEWP was developed to demonstrate how enterprise banking data platforms enable
 
 ---
 
-# Key Features
+# Enterprise Banking Intelligence & Early Warning Platform (EBIEWP)
 
-## Enterprise Data Engineering
-
-- Large-scale synthetic banking data generation
-- Enterprise ETL pipeline
-- Star schema dimensional modelling
-- SQL Server data warehouse
-- Performance indexing
-- Data quality validation
-
-## Banking Analytics
-
-- Customer 360 Analytics
-- Branch Performance Monitoring
-- Loan Portfolio Analytics
-- Repayment Behaviour Analysis
-- Complaint Intelligence
-- Customer Segmentation
-- Revenue Analytics
-
-## Enterprise SQL Layer
-
-- Analytical SQL Views
-- Stored Procedures
-- Business Rule Enforcement
-- Referential Integrity Validation
-- Warehouse Health Validation
-
-## Business Intelligence
-
-- Power BI Semantic Model *(In Progress)*
-- Executive Dashboards *(In Progress)*
-- Early Warning Analytics *(Planned)*
+> A business intelligence and early-warning decision platform that transforms customer, financial, repayment and service data into actionable customer-risk intelligence and automated stakeholder intervention alerts.
 
 ---
 
-# Project Highlights
+## 📌 Project Overview
 
-- Enterprise-grade banking analytics platform built from scratch
-- 100M+ synthetic banking transactions
-- 100,000 customer records
-- 1.13M+ complaint records
-- End-to-end ETL pipeline with business rule enforcement
-- Star schema dimensional data warehouse
-- SQL semantic layer with analytical views and stored procedures
-- Comprehensive warehouse validation framework
-- Power BI executive dashboards (In Progress)
+The Enterprise Banking Intelligence & Early Warning Platform (EBIEWP) is a Business Intelligence solution designed to help a banking organization identify customers showing early signs of financial or service deterioration, understand the drivers behind those signals, prioritize intervention, assign the appropriate stakeholder, and automatically communicate the required action.
+
+Rather than stopping at descriptive reporting, EBIEWP connects:
+
+**Data → Customer Intelligence → Early Warning Detection → Risk Prioritization → Stakeholder Routing → Automated Intervention**
+
+The objective is to demonstrate how Business Intelligence can support an operational decision-making process rather than simply produce dashboards.
 
 ---
 
-# Enterprise Architecture
+# 1. Business Problem
+
+Customer deterioration can manifest through multiple operational signals.
+
+Examples include:
+
+- Increasing days past due
+- Consecutive missed payments
+- Changes in payment behaviour
+- Increasing complaint frequency
+- Unsatisfied complaints
+- Service deterioration
+- Credit deterioration
+- Declining customer health
+
+When these signals are analyzed independently, it becomes difficult for decision-makers to determine:
+
+1. Which customers require attention?
+2. Why are they being flagged?
+3. How severe is the situation?
+4. What action should be taken?
+5. Which stakeholder is responsible for the intervention?
+6. How can the alert reach that stakeholder quickly?
+
+EBIEWP addresses this problem by combining these signals into a unified Customer 360 intelligence layer and connecting the resulting insights to an automated stakeholder notification process.
+
+---
+
+# 2. Business Objective
+
+The primary objective of EBIEWP is to move from:
+
+**Reactive Reporting**
+
+to:
+
+**Proactive Customer Intervention**
+
+The platform is designed to enable the organization to:
+
+- Detect early warning signals
+- Identify customers requiring intervention
+- Classify warning type and severity
+- Understand the underlying warning drivers
+- Quantify associated financial exposure
+- Recommend an appropriate intervention
+- Identify the responsible stakeholder
+- Route the alert to the appropriate stakeholder
+- Automatically communicate the intervention requirement
+
+---
+
+# 3. Solution Architecture
+
+The solution follows a layered Business Intelligence architecture.
 
 ```text
-Business Requirements
-        │
-        ▼
-Python Data Generation Engine
-        │
-        ▼
-Synthetic Banking Datasets
-        │
-        ▼
-SQL Server ETL Pipeline
-        │
-        ▼
-Enterprise Data Warehouse
+                    SOURCE DATA
+                        │
+                        ▼
+              ┌───────────────────┐
+              │   Data Integration │
+              └─────────┬─────────┘
+                        │
+                        ▼
+              ┌───────────────────┐
+              │   Customer 360    │
+              │ Intelligence Layer│
+              └─────────┬─────────┘
+                        │
+                        ▼
+              ┌───────────────────┐
+              │ Customer Health   │
+              │ & Risk Signals    │
+              └─────────┬─────────┘
+                        │
+                        ▼
+              ┌───────────────────┐
+              │ Early Warning     │
+              │ Classification    │
+              └─────────┬─────────┘
+                        │
+                        ▼
+              ┌───────────────────┐
+              │ Risk Prioritization│
+              └─────────┬─────────┘
+                        │
+                        ▼
+              ┌───────────────────┐
+              │ Recommended Action│
+              └─────────┬─────────┘
+                        │
+                        ▼
+              ┌───────────────────┐
+              │ Stakeholder       │
+              │ Routing           │
+              └─────────┬─────────┘
+                        │
+                        ▼
+              ┌───────────────────┐
+              │ n8n Automation    │
+              └─────────┬─────────┘
+                        │
+                        ▼
+              ┌───────────────────┐
+              │ Automated Email   │
+              │ Intervention Alert│
+              └───────────────────┘
 
-├── Dimension Tables
-│     ├── DimCustomer
-│     ├── DimAccount
-│     ├── DimBranch
-│     └── DimDate
-│
-└── Fact Tables
-      ├── FactTransaction
-      ├── FactLoan
-      ├── FactRepayment
-      └── FactComplaint
-        │
-        ▼
-Semantic Layer
-
-├── SQL Views
-└── Stored Procedures
-        │
-        ▼
-Power BI Semantic Model
-        │
-        ▼
-Executive Dashboards
-        │
-        ▼
-Early Warning & Decision Intelligence
-```
-
----
-
-# Technology Stack
-
-| Layer | Technology |
-|--------|------------|
-| Programming | Python |
-| Data Processing | Pandas |
-| Synthetic Data | Faker |
-| Database | SQL Server |
-| ETL | T-SQL |
-| Data Warehouse | Star Schema |
-| Semantic Layer | SQL Views & Stored Procedures |
-| Business Intelligence | Power BI |
-| Version Control | Git & GitHub |
 
 ---
 
-# Enterprise Data Warehouse
+# 4. Customer 360 Intelligence
 
-## Dimension Tables
+The Customer 360 layer consolidates customer-level information into a unified analytical view.
 
-| Dimension | Purpose |
-|-----------|---------|
-| DimCustomer | Customer demographics, segmentation and banking profile |
-| DimAccount | Customer account portfolio |
-| DimBranch | Branch hierarchy and geographic information |
-| DimDate | Enterprise calendar dimension |
+The resulting intelligence layer includes customer attributes and behavioral indicators such as:
 
----
+- Customer identity
+- Branch
+- Region
+- Customer health
+- Customer segment
+- Customer value tier
+- Payment behaviour
+- Days past due
+- Consecutive missed payments
+- Total complaints
+- Unsatisfied complaints
+- Repeat complaints
+- Total transactions
+- Transaction value
+- Account information
+- Loan information
+- Outstanding principal
 
-## Fact Tables
-
-| Fact | Purpose |
-|------|----------|
-| FactTransaction | Banking transaction history |
-| FactLoan | Lending portfolio |
-| FactRepayment | Loan repayment monitoring |
-| FactComplaint | Customer experience and complaint lifecycle analytics |
-
----
-
-# Project Statistics
-
-| Component | Volume |
-|------------|-------:|
-| Customers | 100,000 |
-| Accounts | 153,035 |
-| Branches | 150 |
-| Calendar Dates | 3,834 |
-| Transactions | 100M+ |
-| Active Loans | 4,937 |
-| Repayment Records | 33,000+ |
-| Complaint Records | 1.13M+ |
+This provides the analytical foundation for identifying customer deterioration.
 
 ---
 
-# SQL Server Implementation
+# 5. Early Warning Intelligence
 
-The SQL Server layer transforms the generated banking datasets into an enterprise-grade dimensional warehouse through a structured ETL process.
+EBIEWP introduces an early-warning framework that translates customer behavior into actionable signals.
 
-## SQL Components
+The platform identifies and classifies:
 
-- Database Creation
-- Dimension Tables
-- Fact Tables
-- Data Loading
-- ETL Transformations
-- Primary Keys
-- Foreign Keys
-- Performance Indexes
-- Analytical Views
-- Stored Procedures
-- Enterprise Validation Framework
+Customer Health
+
+Customers can be categorized according to their current health state, including states such as:
+
+- Healthy
+- Watchlist
+- At Risk
+- Warning Type
+
+Examples include:
+
+- Credit Deterioration
+- Service Deterioration
+- Credit + Service
+- Warning Reason
+
+The warning reason explains the underlying driver of the alert.
+
+Examples include:
+
+- Credit repayment deterioration
+- Repeat complaint pattern
+- Credit + service deterioration
+- Warning Severity
+
+Alerts are classified according to severity, including:
+
+- High
+- Medium
+
+This allows stakeholders to distinguish between routine monitoring and cases requiring immediate attention.
 
 ---
 
-# Enterprise Data Validation Framework
+# 6. Recommended Intervention
 
-To ensure analytical reliability, the warehouse includes comprehensive validation covering:
+A core component of EBIEWP is the translation of analytical findings into recommended business action.
 
-- Dataset validation
-- Row count validation
-- Duplicate detection
-- Mandatory field validation
-- Referential integrity validation
-- Banking business rule validation
-- Semantic layer validation
-- Stored procedure validation
+Instead of simply presenting:
 
-The objective is to ensure that Power BI consumes trusted, business-ready data.
+**"Customer is at risk."**
+
+the platform determines an intervention such as:
+
+**Relationship Manager Follow-up**
+**Customer Service Follow-up**
+**Service Recovery**
+
+This creates a direct connection between analytical insight and operational action.
 
 ---
 
-# Enterprise Business Rules
+# 7. Stakeholder Routing
 
-The platform incorporates realistic banking business rules across multiple domains.
+Once a customer requires intervention, EBIEWP determines the appropriate stakeholder.
 
-## Customer Analytics
+The platform includes:
 
+Customer
+    ↓
+Warning
+    ↓
+Recommended Action
+    ↓
+Stakeholder
+    ↓
+Stakeholder Email
+
+Examples include:
+
+| Intervention                   | Stakeholder           |
+| ------------------------------ | --------------------- |
+| Relationship Manager Follow-up | Branch Manager        |
+| Customer Service Follow-up     | Customer Service      |
+| Service Recovery               | Service Recovery Team |
+
+
+The stakeholder email is dynamically resolved so that alerts can be routed to the appropriate recipient.
+
+---
+
+# 8. Automation Layer
+
+The final stage of EBIEWP extends the BI solution into an operational workflow using n8n.
+
+The automation workflow:
+
+Schedule Trigger
+       ↓
+Google Drive
+       ↓
+Download Alert Dataset
+       ↓
+Extract CSV
+       ↓
+Group Alerts by Stakeholder
+       ↓
+Build Stakeholder Email
+       ↓
+Gmail
+       ↓
+Stakeholder Receives Alert
+
+The workflow transforms the output of the BI solution into an actionable communication.
+
+---
+
+# 9. Automated Stakeholder Email
+
+The generated stakeholder email contains a business-oriented intervention summary rather than simply attaching raw data.
+
+Each alert includes information such as:
+
+**Alert Summary**
+- Total alerts
+- High-severity alerts
+- Medium-severity alerts
+- At-risk customers
+- Watchlist customers
+- Financial Exposure
+
+The email calculates the total outstanding principal associated with the alert population.
+
+**Warning Drivers**
+
+The leading warning reasons are summarized to help stakeholders understand the major drivers of deterioration.
+
+**Recommended Action**
+
+The email identifies the recommended intervention.
+
+**Priority Customers**
+
+The highest-priority customers are presented using a prioritization approach based on:
+
+- Warning severity
+- Days past due
+- Complaint volume
+- Outstanding principal
+
+This ensures that stakeholders receive a prioritized operational view rather than an undifferentiated list of customers.
+
+---
+
+# 10. Automation Demonstration
+
+The automation was tested against the final early-warning dataset.
+
+The demonstration produced:
+
+- 47,847 early-warning records
+- 13 stakeholder routing groups
+- 13 stakeholder emails
+- Successfully delivered automated stakeholder alerts
+
+The stakeholder distribution included major operational groups such as:
+
+- Customer Service
+- Service Recovery Team
+- Branch Managers
+
+The automation successfully generated stakeholder-specific HTML emails containing the relevant customer alerts and recommended actions.
+
+---
+
+# 11. Example Automated Alert
+
+The final email contains:
+
+- Stakeholder identification
+- Number of customers requiring intervention
+- Severity breakdown
+- Customer health breakdown
+- Financial exposure
+- Leading warning drivers
+- Recommended intervention
+- Prioritized customer cases
+- Customer-level warning information
+
+The result is a transition from:
+
+Analytics
+    ↓
+Dashboard
+
+to:
+
+Analytics
+    ↓
+Decision
+    ↓
+Action
+
+---
+
+# 12. Key Business Value
+
+EBIEWP demonstrates how Business Intelligence can contribute directly to operational decision-making.
+
+**1. Earlier Intervention**
+
+Potentially deteriorating customers can be identified before the situation becomes more severe.
+
+**2. Better Prioritization**
+
+Stakeholders can focus on the highest-priority cases rather than reviewing every customer equally.
+
+**3. Financial Risk Visibility**
+
+The platform quantifies outstanding principal associated with flagged customers.
+
+**4. Clear Accountability**
+
+Each intervention is associated with a responsible stakeholder.
+
+**5. Faster Communication**
+
+Automated alerts reduce the need for stakeholders to manually search dashboards for customers requiring intervention.
+
+**6. Closed-Loop BI**
+
+The solution demonstrates a progression from:
+
+Data → Insight → Decision → Action
+
+---
+
+# 13. Technology Stack
+
+**Business Intelligence**
+- Microsoft Power BI
+- DAX
+- DAX Studio
+
+**Data & Analytics**
+- SQL
+- Customer 360 analytical modeling
+- Derived business rules
+- Early-warning classification
+
+**Automation**
+- n8n
+- Google Drive
+- Gmail
+
+**Documentation & Version Control**
+- Git
+- GitHub
+- Markdown
+
+---
+
+# 14. Core Analytical Concepts Demonstrated
+
+This project demonstrates practical application of:
+
+- Data modeling
+- Customer 360 analytics
+- Business rule development
+- DAX calculated columns
+- DAX calculated tables
 - Customer segmentation
-- Multi-account relationships
-- Customer lifecycle tracking
-- Branch allocation
-
-## Lending
-
-- Income-based loan eligibility
-- Outstanding principal monitoring
-- Repayment behaviour analysis
-- Consecutive missed repayments
-- Days Past Due (DPD)
-- Loan maturity tracking
-
-## Customer Experience
-
-- Complaint lifecycle management
-- SLA monitoring
-- Complaint escalation
-- Customer satisfaction modelling
-- Repeat complaint detection
-
-## Operational Analytics
-
-- Branch performance monitoring
-- Revenue tracking
-- Customer behaviour analysis
-- Early warning indicators
+- Risk classification
+- Exception detection
+- Financial exposure analysis
+- Stakeholder routing
+- Operational reporting
+- Workflow automation
+- HTML email generation
+- Business process thinking
 
 ---
 
-# Project Status
+# 15. Project Screenshots
+Executive Overview
 
-| Phase | Status |
-|--------|--------|
-| Business Requirements | ✅ Complete |
-| Enterprise Architecture | ✅ Complete |
-| Python Data Generation | ✅ Complete |
-| Enterprise Data Warehouse | ✅ Complete |
-| SQL Server Implementation | ✅ Complete |
-| Enterprise Validation Framework | ✅ Complete |
-| Power BI Semantic Model | 🚧 In Progress |
-| Executive Dashboards | ⏳ Planned |
-| Early Warning Engine | ⏳ Planned |
+![EBIEWP EXECUTIVE OVERVIEW](README%20Assets/EBIEWP%20EXECUTIVE%20OVERVIEW.jpg)
 
----
+Customer 360
 
-# Project Structure
+![EBIEWP CUSTOMER INTELLIGENCE](README%20Assets/EBIEWP%20CUSTOMER%20INTELLIGENCE.jpg)
 
-```text
-Enterprise Banking Intelligence & Early Warning Platform
-│
-├── Data
-│
-├── Documentation
-│
-├── Python
-│   ├── Generators
-│   ├── Utilities
-│   └── Validation
-│
-├── SQL
-│   ├── Database
-│   ├── ETL
-│   ├── Views
-│   ├── Stored Procedures
-│   └── Validation
-│
-├── Power BI
-│
-└── README Assets
-```
+Early Warning Intelligence
+
+![EBIEWP EARLY WARNING INTELLIGENCE](README%20Assets/EBIEWP%20EARLY%20WARNING%20INTELLIGENCE.jpg)
+
+n8n Automation
+
+![Early Warning Alert Automation Flow](README%20Assets/Early%20Warning%20Alert%20Automation%20Flow.jpg)
+
+Automated Stakeholder Email
+
+![Test Email Generated](README%20Assets/Test%20Email%20Generated.jpg)
 
 ---
 
-# Data Validation
+# 16. Repository Structure
 
-Each generated dataset undergoes validation before loading into the warehouse.
-
-The SQL implementation further validates:
-
-- Referential Integrity
-- Mandatory Fields
-- Duplicate Records
-- Business Rules
-- Semantic Views
-- Stored Procedures
-
-Validation screenshots are available throughout this repository.
+EBIEWP/
+│
+├── README.md
+│
+├── PowerBI/
+│   ├── EBIEWP.pbix
+│   └── DAX/
+│
+├── SQL/
+│   └── queries/
+│
+├── Automation/
+│   ├── n8n-workflow.json
+│   └── automation-documentation.md
+│
+├── Documentation/
+│   ├── architecture.md
+│   ├── business-logic.md
+│   └── case-study.md
+│
+└── Screenshots/
+    ├── executive-overview.png
+    ├── customer-360.png
+    ├── early-warning.png
+    ├── customer-drilldown.png
+    ├── stakeholder-routing.png
+    ├── n8n-workflow.png
+    └── automated-email.png
 
 ---
 
-# Next Phase
+# 17. Limitations
 
-The next stage of EBIEWP focuses on developing the Power BI semantic model and executive dashboards, including:
+This project is a portfolio demonstration rather than a production banking implementation.
 
-- Executive Banking Overview
-- Customer 360 Dashboard
-- Loan Portfolio Dashboard
-- Credit Risk Dashboard
-- Branch Performance Dashboard
-- Complaint Intelligence Dashboard
-- Early Warning Dashboard
+The underlying dataset is used to demonstrate the analytical and automation architecture.
+
+The automation environment also uses demonstration infrastructure and email routing.
+
+The current implementation does not include:
+
+- Production database infrastructure
+- Enterprise identity and access management
+- Production-grade secrets management
+- Real-time streaming ingestion
+- Enterprise monitoring
+- Production audit infrastructure
+- Persistent alert deduplication
+- Production SLA monitoring
+
+These would be required before deploying the solution in a live banking environment.
 
 ---
 
-# Repository Notes
+# 18. Future Production Enhancements
 
-The repository contains source code, validation datasets and documentation.
+A production implementation could extend EBIEWP with:
 
-Large production datasets—including the 100M+ transaction dataset—are intentionally excluded from version control due to their size and can be regenerated locally using the supplied Python generators.
+**Real-Time Data**
+
+Replace scheduled CSV extraction with direct database, API or event-based ingestion.
+
+**Alert Deduplication**
+
+Maintain a persistent alert state and prevent duplicate notifications when the underlying customer state has not changed.
+
+**Alert History**
+
+Create an intervention history capturing:
+
+- Alert generated
+- Stakeholder notified
+- Action taken
+- Action date
+- Resolution status
+
+**Stakeholder Response Tracking**
+
+Allow stakeholders to acknowledge alerts and record intervention outcomes.
+
+**Advanced Risk Scoring**
+
+Replace rule-based warning classification with statistical or machine-learning models where appropriate.
+
+**Enterprise Orchestration**
+
+Integrate with enterprise workflow, CRM and case-management systems.
+
+**Monitoring**
+
+Introduce automation monitoring, failure alerts and SLA tracking.
+
+---
+
+# 19. Project Outcome
+
+EBIEWP demonstrates a shift from traditional Business Intelligence reporting toward operational decision intelligence.
+
+The solution does not simply answer:
+
+**"What is happening?"**
+
+It also addresses:
+
+**"Which customers require attention?"**
+
+**"Why are they being flagged?"**
+
+**"How serious is the situation?"**
+
+**"What should happen next?"**
+
+**"Who should act?"**
+
+and finally:
+
+**"How can the responsible stakeholder be notified automatically?"**
+
+The resulting architecture connects analytical intelligence with operational execution:
+
+DATA
+  ↓
+CUSTOMER 360
+  ↓
+EARLY WARNING
+  ↓
+PRIORITIZATION
+  ↓
+RECOMMENDED ACTION
+  ↓
+STAKEHOLDER ROUTING
+  ↓
+AUTOMATION
+  ↓
+INTERVENTION
+
+---
+
+# 20. Conclusion
+
+The Enterprise Banking Intelligence & Early Warning Platform demonstrates how Business Intelligence can evolve beyond dashboards into a decision-support and operational intervention system.
+
+By combining Customer 360 analytics, early-warning intelligence, risk prioritization, stakeholder routing and workflow automation, EBIEWP creates a framework through which organizations can identify emerging customer problems and connect those insights directly to the people responsible for acting on them.
+
+**The core principle of the solution is simple:**
+
+**Detect → Understand → Prioritize → Route → Act**
+
 
 ---
 
